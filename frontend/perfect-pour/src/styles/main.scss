@@ -1,0 +1,41 @@
+@import './variables';
+
+// Initial Styling for elements
+* {
+  font-family: $font-secondary;
+}
+h1, h2, h3, h4 {
+  font-family: $font-primary;
+  margin: 0;
+}
+li {
+  list-style: none;
+  :hover {
+    cursor: pointer;
+  }
+}
+h1 {
+  text-transform: lowercase;
+  color: $col-primary;
+  font-size: 2.5rem;
+}
+
+// Reusable Components
+header#header {
+  text-align: center;
+  width: 100%;
+  height: 15vh;
+  background-color: $col-dark; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  ul {
+    color: $col-light;
+    display: flex;
+    padding: 0;
+    width: 30%;
+    justify-content: space-around;
+  }
+}

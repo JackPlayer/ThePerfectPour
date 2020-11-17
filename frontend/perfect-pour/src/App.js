@@ -1,5 +1,5 @@
 import './styles/main.scss'
-import Header from './components/Reusable/Header'
+import Header from './components/Header'
 
 function App() {
   const navList = ["home", "history", "calculations"]
