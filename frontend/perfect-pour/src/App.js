@@ -1,11 +1,13 @@
 import './styles/main.scss'
-import Header from './components/Header'
+import Page from './components/reusable/Page'
 
 function App() {
   const navList = ["home", "history", "calculations"]
   return (
     <div className="app">
-      <Header navList={navList}/>
+      <Page navList={navList}>
+        
+      </Page>
     </div>
   );
 }
