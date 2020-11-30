@@ -3,14 +3,21 @@
 // Initial Styling for elements
 * {
   font-family: $font-secondary;
+  overflow-x: hidden;
 }
+
+html, body, .app, #root {
+  height: 100%;
+}
+
 h1, h2, h3, h4 {
   font-family: $font-primary;
   margin: 0;
 }
-p {
+p, h2, label {
   color: $col-light;
 }
+
 li {
   list-style: none;
   :hover {
@@ -24,16 +31,68 @@ h1 {
   padding: 1rem;
 }
 
-body {
-  background-color: $col-background;
-  overflow: hidden;
+h2 {
+  margin: 1rem;
+  text-align: center;
 }
 
+form {
+  padding: 1.4rem;
+  border: 1px solid $col-outline;
+  border-radius: 10px;
+  background-color: $col-dark;
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.3rem;
+  }
+
+  label {
+    font-size: 0.7rem;
+  }
+
+  input {
+    border: none;
+    background-color: $col-background;
+    margin-top: 2px;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid $col-outline;
+    border-radius: 7px;
+    color: $col-light;
+    outline: none;
+  }
+}
+
+
+body {
+  background-color: $col-background;
+}
+
+
+// buttons
+.btn-primary {
+  color: $col-light;
+  background-color: $col-primary;
+  border: none;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  font-weight: bold;
+  border: 1px solid $col-primary;
+  border-radius: 10px;
+
+  &:hover {
+    cursor: pointer;
+    color: $col-dark;
+  }
+}
 // Reusable Components
 header#header {
   text-align: center;
   width: 100%;
- 
+  flex: 0.1 0 auto;
   background-color: $col-dark; 
   display: flex;
   flex-direction: column;
@@ -50,20 +109,58 @@ header#header {
 }
 
 footer#footer {
+  flex-shrink: 0;
   display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  padding: 1rem;
   background-color: $col-dark;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
 .content {
   width: 100%;
+  flex: 1 0 auto;
+
   display: flex;
   justify-content: center;
 }
 .container {
   width: 80%;
-  height: 50vh;
+}
+
+.vertical-divider {
+  width: 1px;
+  background-color: $col-dark;
+  height: 200px;
+  align-self: center;
+}
+// Login Page 
+
+#login-reg-page {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media(max-width: 600px) {
+  .container {
+    width: 90%;
+  }
+
+  #login-reg-page {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .vertical-divider {
+    display: none;
+  }
 }
