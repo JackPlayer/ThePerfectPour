@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 import Header from './Header'
 import Footer from './Footer'
 
-const Page = ({navList, children}) => {
+const Page = ({navList, pageTitle, children}) => {
   return (
     <>
       <Header navList={navList}/> 
       <div className="content">
         <div className="container">
+        { pageTitle && <h1 className="page-title">{pageTitle}</h1> }
           {children}
         </div>
       </div>

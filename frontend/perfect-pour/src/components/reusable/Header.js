@@ -9,7 +9,7 @@ const Header = ({navList}) => {
     ))
 
     return (
-      <ul>{listItems}</ul>
+      <ul id="main-navigation">{listItems}</ul>
     )
   }
   return (

@@ -57,8 +57,7 @@ const LoginRegister = () => {
           {renderLogin()}
           <div className="vertical-divider"></div>
           {renderRegister()}
-        </div>
-        
+        </div>      
     </Page>
   )
 }
