@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const Header = ({navList}) => {
+const Header = ({navList, active}) => {
 
   const renderNavigation = (l) => {
     const listItems = l.map((elem) => (
-      <li key={elem}><Link to={`/${elem}`}>{elem}</Link></li>
+      <li key={elem}><Link to={`/${elem}`} className={elem === active ? "active":""}>{elem}</Link></li>
     ))
 
     return (

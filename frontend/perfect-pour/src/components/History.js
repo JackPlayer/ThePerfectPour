@@ -1,9 +1,9 @@
 import React from 'react'
 import Page from './reusable/Page'
 
-const History = ({navList}) => {
+const History = ({navList, active}) => {
   return (
-    <Page pageTitle="History" navList={navList}>
+    <Page active={active} pageTitle="History" navList={navList}>
       <div id="history-page">
         <div id="brewing">
           <h2 className="sub-title">
