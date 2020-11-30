@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
 const Header = ({navList}) => {
 
   const renderNavigation = (l) => {
     const listItems = l.map((elem) => (
-      <li key={elem}>{elem}</li>
+      <li key={elem}><Link to={`/${elem}`}>{elem}</Link></li>
     ))
 
     return (
