@@ -14,6 +14,9 @@ const Page = ({navList, pageTitle, children, active}) => {
           {children}
         </div>
       </div>
+      <div id="logout">
+        <button className='btn-secondary'>Logout</button>
+      </div>
       <Footer />
     </>
     

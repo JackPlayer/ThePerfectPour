@@ -4,6 +4,7 @@
 * {
   font-family: $font-secondary;
   overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 html, body, .app, #root {
@@ -67,6 +68,9 @@ form {
 body {
   background-color: $col-background;
 }
+
+
+
 // Titles and Subtitle
 .page-title {
   color: $col-light;
@@ -103,6 +107,22 @@ body {
     cursor: pointer;
     color: $col-dark;
   }
+}
+
+.btn-secondary {
+
+  border-radius: 5px;
+  border: none;
+  padding: 5px 10px;
+  background-color: $col-outline;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#logout {
+  align-self: center;
+  margin: 10px;
 }
 // Reusable Components
 header#header {
