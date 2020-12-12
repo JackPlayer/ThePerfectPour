@@ -13,6 +13,9 @@ function App() {
       <Router >
         <div className="app">
           <Switch>
+            <Route path="/login">
+              <LoginRegister />
+            </Route>
             <Route path="/home">
               <Home active="home" navList={navList} />
             </Route>

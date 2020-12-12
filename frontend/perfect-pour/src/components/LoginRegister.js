@@ -1,13 +1,18 @@
 import React from 'react'
 import Page from './reusable/Page'
+import { useHistory } from 'react-router-dom'
 
 const LoginRegister = () => {
+  const history = useHistory()
+  const handleLogin = () => {
+    history.push('/home')
+  }
 
   const renderLogin = () => {
     return (
       <div id="login">
         <h2>Login</h2>
-        <form id="login-form">
+        <form id="login-form" onSubmit={() => handleLogin()}>
           <div className="form-field">
             <label>Email</label>
             <input type="email"></input>

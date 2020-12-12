@@ -1,10 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 
 import Header from './Header'
 import Footer from './Footer'
 
 const Page = ({navList, pageTitle, children, active}) => {
+  const history = useHistory()
+
+  const handleLogout = () => {
+    history.push('/login')
+  }
   return (
     <>
       <Header active={active} navList={navList}/> 
@@ -15,7 +21,7 @@ const Page = ({navList, pageTitle, children, active}) => {
         </div>
       </div>
       <div id="logout">
-        <button className='btn-secondary'>Logout</button>
+        <button className='btn-secondary' onClick={() => handleLogout()}>Logout</button>
       </div>
       <Footer />
     </>
