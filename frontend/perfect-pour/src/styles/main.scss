@@ -222,11 +222,22 @@ footer#footer {
      padding: 0.5rem;
      
    }
+  }
+}
 
-   .selected {
-     background-color: $col-dark;
-   }
-    
+// Home Page
+#home-page {
+  #create-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    > div {
+      width: 45%;
+    }
+  }
+
+  #progress-section {
+    margin-bottom: 20px;
   }
 }
 
@@ -250,6 +261,18 @@ footer#footer {
     }
   }
 
+  #home-page {
+    #create-section {
+      flex-direction: column;
+      margin-bottom: 20px;
+  
+      > div {
+        width: 100%;
+      }
+    }
+    
+  }
+
   #calculator-page {
     flex-direction: column;
     flex-flow:column-reverse;
@@ -263,6 +286,13 @@ footer#footer {
 @media(max-width: 600px) {
   .container {
     width: 90%;
+    .page-title {
+      font-size: 2rem;
+    }
+
+    .sub-title {
+      font-size: 1.5rem;
+    }
   }
   
   #login-reg-page {
