@@ -57,7 +57,7 @@ const LoginRegister = () => {
     )
   }
   return (
-    <Page>
+    <Page login={true}>
         <div id="login-reg-page">
           {renderLogin()}
           <div className="vertical-divider"></div>

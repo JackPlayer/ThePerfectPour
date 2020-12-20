@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom'
 import Header from './Header'
 import Footer from './Footer'
 
-const Page = ({navList, pageTitle, children, active}) => {
+const Page = ({navList, pageTitle, children, active, login}) => {
   const history = useHistory()
 
   const handleLogout = () => {
@@ -20,9 +20,9 @@ const Page = ({navList, pageTitle, children, active}) => {
           {children}
         </div>
       </div>
-      <div id="logout">
+      { !login && (<div id="logout">
         <button className='btn-secondary' onClick={() => handleLogout()}>Logout</button>
-      </div>
+      </div>) }
       <Footer />
     </>
     
