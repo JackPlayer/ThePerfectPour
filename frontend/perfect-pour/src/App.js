@@ -33,6 +33,22 @@ function App() {
       </Router>
     )
   }
+
+  const renderLogin = () => {
+    return (
+      <Router>
+        <div className="app">
+          <Switch>
+            <Route path="/login">
+              <LoginRegister />
+            </Route>
+            <Route render={() => <Redirect to="/login" />} />
+          </Switch>
+        </div>
+
+      </Router>
+    )
+  }
   return (
     renderMainApp()  
   )
