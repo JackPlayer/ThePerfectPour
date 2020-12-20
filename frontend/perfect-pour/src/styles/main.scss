@@ -3,8 +3,6 @@
 // Initial Styling for elements
 * {
   font-family: $font-secondary;
-  overflow-x: hidden;
-  overflow-y: hidden;
 }
 
 html, body, .app, #root {
@@ -144,7 +142,6 @@ header#header {
 }
 
 footer#footer {
-  flex-shrink: 0;
   display: flex; 
   flex-direction: column;
   justify-content: center;
@@ -159,8 +156,6 @@ footer#footer {
 
 .content {
   width: 100%;
-  flex: 1 0 auto;
-
   display: flex;
   justify-content: center;
 }
@@ -206,6 +201,35 @@ footer#footer {
   }
 }
 
+// Calculator Page
+#calculator-page {
+  display: flex;
+  flex-direction: row;
+
+  #calculator-box {
+    flex: 4;
+  }
+  #calculator-selector {
+    flex: 1;
+    margin-left: 15px;
+  select {
+    width: 100%;
+    border-radius: 5px;
+  }
+   option {
+     width: 100%;
+     text-align: center;
+     padding: 0.5rem;
+     
+   }
+
+   .selected {
+     background-color: $col-dark;
+   }
+    
+  }
+}
+
 // MOBILE
 
 @media(max-width: 800px) {
@@ -225,13 +249,22 @@ footer#footer {
       width: 100%;
     }
   }
+
+  #calculator-page {
+    flex-direction: column;
+    flex-flow:column-reverse;
+    #calculator-selector {
+      margin-bottom: 10px;
+      margin-left: 0;
+    }
+  }
 }
 
 @media(max-width: 600px) {
   .container {
     width: 90%;
   }
-
+  
   #login-reg-page {
     flex-direction: column;
     justify-content: center;
