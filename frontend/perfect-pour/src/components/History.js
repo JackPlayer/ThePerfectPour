@@ -1,6 +1,11 @@
 import React from 'react'
 import Page from './reusable/Page'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
+
+
+
 const History = ({navList, active}) => {
   return (
     <Page active={active} pageTitle="History" navList={navList}>
@@ -10,7 +15,39 @@ const History = ({navList, active}) => {
             Brewing
           </h2>
           <div className="content-box" id="brewing-content">
+            <table>
+              <thead>
+                <th>Name</th>
+                <th>Style</th>
+                <th>Size</th>
+                <th>Started</th>
+                <th>Finished</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Beer1</td>
+                  <td>Stout</td>
+                  <td>5 gal</td>
+                  <td>December 20, 2020</td>
+                  <td>Beer1</td>
+                </tr>
 
+                <tr>
+                  <td>Beer2</td>
+                  <td>Beer2</td>
+                  <td>Beer2</td>
+                  <td>Beer2</td>
+                  <td>Beer2</td>
+                </tr>
+                <tr>
+                  <td>Beer3</td>
+                  <td>Beer3</td>
+                  <td>Beer3</td>
+                  <td>Beer3</td>
+                  <td>Beer3</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
         <div id="recipes">
@@ -18,7 +55,25 @@ const History = ({navList, active}) => {
             Recipes
           </h2>
           <div className="content-box" id="recipe-content">
-             
+             <table>
+               <thead>
+                 <th>Name</th>
+                 <th>Style</th>
+                 <th>Info</th>
+               </thead>
+               <tbody>
+                 <tr>
+                  <td>Irish Stout</td>
+                  <td>Stout</td>
+                  <td><FontAwesomeIcon icon={faSearch}/></td>
+                 </tr>
+                 <tr>
+                  <td>Christmas IPA</td>
+                  <td>New England IPA</td>
+                  <td><FontAwesomeIcon icon={faSearch}/></td>
+                 </tr>
+               </tbody>
+             </table>
           </div>
         </div>
       </div>
