@@ -106,4 +106,4 @@ const hopTypes = [
   "Zythos",
 ]
 
-export { beerStyles, }
+export { beerStyles, hopTypes}

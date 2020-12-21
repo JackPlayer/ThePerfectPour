@@ -16,7 +16,9 @@ h1, h2, h3, h4 {
 p, h2, label {
   color: $col-light;
 }
-
+h5 {
+  color: $col-primary;
+}
 p {
   font-size: 0.8rem;
 }
@@ -56,12 +58,16 @@ form {
   input {
     border: none;
     background-color: $col-background;
-    margin-top: 2px;
+    margin-top: 3px;
     padding: 0.3rem 0.8rem;
     border: 1px solid $col-outline;
     border-radius: 7px;
     color: $col-light;
     outline: none;
+  }
+  select {
+    padding: 0.3rem 0.8rem;
+    margin-top: 3px;
   }
 }
 
