@@ -1,5 +1,7 @@
 import React from 'react'
 import Page from './reusable/Page'
+import NewBrewForm from './NewBrewForm'
+import NewRecipeForm from './NewRecipeForm'
 
 import hops from '../assets/hops.svg'
 import wheat from '../assets/wheat.svg'
@@ -122,16 +124,16 @@ const Home = ({navList, active}) => {
         </div>
         
         <div id="create-section">
-          <div id="create-brew">
-            <h2 className="sub-title">New Brew</h2>
-            <div className="content-box">
-              
-            </div>
-          </div>
           <div id="create-recipe">
             <h2 className="sub-title">New Recipe</h2>
             <div className="content-box">
-
+              <NewRecipeForm />
+            </div>
+          </div>
+          <div id="create-brew">
+            <h2 className="sub-title">New Brew</h2>
+            <div className="content-box">
+              <NewBrewForm />
             </div>
           </div>
         </div>

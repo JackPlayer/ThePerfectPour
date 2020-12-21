@@ -51,8 +51,6 @@ const CalculatorABV = () => {
 
         <p><strong>Alcohol By Volume ({unit}): {abv}</strong></p>
       </form>
-
-      
     </div>
   )
 }
