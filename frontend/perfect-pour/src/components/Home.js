@@ -1,6 +1,11 @@
 import React from 'react'
 import Page from './reusable/Page'
 
+import hops from '../assets/hops.svg'
+import wheat from '../assets/wheat.svg'
+import carbonation from '../assets/reaction.svg'
+import beers from '../assets/beers.svg'
+
 const Home = ({navList, active}) => {
   const username = "Jack"
   return (
@@ -8,8 +13,111 @@ const Home = ({navList, active}) => {
       <div id="home-page">
         <div id="progress-section">
           <h2 className="sub-title">In progress</h2>
-            <div className="content-box">
-              
+            <div className="content-box" id="progress-box">
+              <div className="progress-table">
+                <div className="progress-title">
+                  <img src={hops} alt="hops" /> <h3>Primary Fermentation</h3>
+
+                </div>
+                <table>
+                  <thead>
+                    <th>Name</th>
+                    <th>Style</th>
+                    <th>Started</th>
+                    <th>Next Step</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Beer1</td>
+                      <td>Stout</td>
+                      <td>December 20, 2020</td>
+                      <td>Beer1</td>
+                    </tr>
+
+                    <tr>
+                      <td>Beer2</td>
+                      <td>Beer2</td>
+                      <td>Beer2</td>
+                      <td>Beer2</td>
+                    </tr>
+                    <tr>
+                      <td>Beer3</td>
+                      <td>Beer3</td>
+                      <td>Beer3</td>
+                      <td>Beer3</td>
+                    </tr>
+                  </tbody>
+                </table>  
+              </div>
+
+              <div className="progress-table">
+                <div className="progress-title">
+                  <img src={wheat} alt="wheat" /> <h3>Secondary Fermentation</h3>
+                </div>
+                <table>
+                  <thead>
+                    <th>Name</th>
+                    <th>Style</th>
+                    <th>Started</th>
+                    <th>Next Step</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Beer1</td>
+                      <td>Stout</td>
+                      <td>December 20, 2020</td>
+                      <td>Beer1</td>
+                    </tr>
+        
+                  </tbody>
+                </table>
+              </div>
+
+              <div className="progress-table">
+                <div className="progress-title">
+                  <img src={carbonation} alt="carbonation" /> <h3>Carbonation</h3>
+                </div>
+                <table>
+                  <thead>
+                    <th>Name</th>
+                    <th>Style</th>
+                    <th>Started</th>
+                    <th>Next Step</th>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+              <div className="progress-table">
+              <div className="progress-title">
+                  <img src={beers} alt="beers" /> <h3>Drink</h3>
+                </div>
+                <table>
+                  <thead>
+                    <th>Name</th>
+                    <th>Style</th>
+                    <th>Finished</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Beer1</td>
+                      <td>Stout</td>
+                      <td>December 20, 2020</td>
+                    </tr>
+
+                    <tr>
+                      <td>Beer2</td>
+                      <td>Beer2</td>
+                      <td>Beer2</td>
+                    </tr>
+                    <tr>
+                      <td>Beer3</td>
+                      <td>Beer3</td>
+                      <td>Beer3</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
         </div>
         
