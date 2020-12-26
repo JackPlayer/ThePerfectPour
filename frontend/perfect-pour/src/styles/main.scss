@@ -44,6 +44,8 @@ form {
   border: 1px solid $col-outline;
   border-radius: 10px;
   background-color: $col-dark;
+  color: $col-light;
+
 
   .form-field {
     display: flex;
@@ -83,8 +85,11 @@ table {
   thead {
     background-color: $col-primary;
     color: $col-dark;
-    
- 
+  }
+
+  th {
+    background-color: $col-primary;
+    color: $col-dark;
   }
   th, td {
     padding: 0.5rem;
@@ -208,6 +213,14 @@ footer#footer {
   height: 200px;
   align-self: center;
 }
+
+.row {
+  display: flex;
+  flex-direction: row;
+  input {
+    width: 25%;
+  }
+}
 // Login Page 
 
 #login-reg-page {
@@ -300,6 +313,21 @@ footer#footer {
   .progress-title:hover {
     img {
       transform: rotate(360deg);
+    }
+  }
+
+  #recipe-form {
+    .hops-entry {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid $col-green;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .fa-icon {
+      align-self: center;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
   }
   

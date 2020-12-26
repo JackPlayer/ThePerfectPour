@@ -47,7 +47,7 @@ const CalculatorABV = () => {
           <input type="number" step="0.001" onChange={(e) => setFg(e.target.value)}></input>
         </div>
 
-        <button type="submit">Calculate</button>
+        <button type="submit" className="btn-calc">Calculate</button>
 
         <p><strong>Alcohol By Volume ({unit}): {abv}</strong></p>
       </form>
