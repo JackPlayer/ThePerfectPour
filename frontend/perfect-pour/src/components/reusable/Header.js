@@ -35,5 +35,5 @@ export default Header;
 
 Header.propTypes = {
   navList: PropTypes.arrayOf(PropTypes.string),
-  active: PropTypes.String,
+  active: PropTypes.string,
 };

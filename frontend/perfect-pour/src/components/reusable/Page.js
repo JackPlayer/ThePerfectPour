@@ -1,19 +1,28 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
+/**
+ * Page.js
+ * React component for an individual page
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 
-import Header from './Header'
-import Footer from './Footer'
+import Header from './Header';
+import Footer from './Footer';
 
-const Page = ({navList, pageTitle, children, active, login}) => {
-  const history = useHistory()
+const Page = ({
+  navList, pageTitle, children, active, login,
+}) => {
+  const history = useHistory();
 
+  /**
+   * Logout handler. Sends the user back to /login
+   */
   const handleLogout = () => {
-    history.push('/login')
-  }
+    history.push('/login');
+  };
   return (
     <>
-      <Header active={active} navList={navList}/> 
+      <Header active={active} navList={navList}/>
       <div className="content">
         <div className="container">
         { pageTitle && <h1 className="page-title">{pageTitle}</h1> }
@@ -25,13 +34,16 @@ const Page = ({navList, pageTitle, children, active, login}) => {
       </div>) }
       <Footer />
     </>
-    
-  )
-}
 
-export default Page
+  );
+};
+
+export default Page;
 
 Page.propTypes = {
   children: PropTypes.node,
-  navList: PropTypes.arrayOf(PropTypes.string)
-}
+  navList: PropTypes.arrayOf(PropTypes.string),
+  pageTitle: PropTypes.string,
+  active: PropTypes.string,
+  login: PropTypes.bool,
+};
