@@ -1,15 +1,22 @@
-import './styles/main.scss'
-import LoginRegister from './components/LoginRegister'
-import History from './components/History'
-import Home from './components/Home'
-import Calculations from './components/Calculations'
-import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom' 
+/**
+ * App.js
+ * React component for main application entrypoint
+ */
 
-function App() {
-  const navList = ["home", "history", "calculations"]
+import './styles/main.scss';
+import React from 'react';
+import {
+  BrowserRouter as Router, Switch, Route, Redirect,
+} from 'react-router-dom';
+import LoginRegister from './components/LoginRegister';
+import History from './components/History';
+import Home from './components/Home';
+import Calculations from './components/Calculations';
 
-  const renderMainApp = () => {
-    return (
+const App = () => {
+  const navList = ['home', 'history', 'calculations'];
+
+  const renderMainApp = () => (
       <Router >
         <div className="app">
           <Switch>
@@ -31,11 +38,10 @@ function App() {
           </Switch>
         </div>
       </Router>
-    )
-  }
+  );
 
-  const renderLogin = () => {
-    return (
+  // Unimplemented for now.
+  /* const renderLogin = () => (
       <Router>
         <div className="app">
           <Switch>
@@ -47,11 +53,11 @@ function App() {
         </div>
 
       </Router>
-    )
-  }
+  ); */
+
   return (
-    renderMainApp()  
-  )
-}
+    renderMainApp()
+  );
+};
 
 export default App;

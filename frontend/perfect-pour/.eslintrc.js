@@ -1,6 +1,6 @@
 module.exports = {
   rules: {
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['warn', 'windows'],
   },
   extends: ['airbnb-base', 'plugin:jsdoc/recommended', 'plugin:react/recommended'],
 };
