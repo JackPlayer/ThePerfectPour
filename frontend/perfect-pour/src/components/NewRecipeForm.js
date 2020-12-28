@@ -34,7 +34,7 @@ const NewRecipeForm = () => {
         <label>Type</label>
         <select>
           <option value="all-grain">All-Grain</option>
-          <option value="extract">All-Grain</option>
+          <option value="extract">Extract</option>
         </select>
       </div>
 
