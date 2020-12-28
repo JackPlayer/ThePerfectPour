@@ -1,20 +1,22 @@
-import React from 'react'
-import Page from './reusable/Page'
+/**
+ * Calculations.js
+ * React component for calculations page
+ */
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import CalculatorABV from './CalculatorABV'
+import Page from './reusable/Page';
+import CalculatorABV from './CalculatorABV';
 
-const Calculations = ({navList, active}) => {
-  return (
+const Calculations = ({ navList, active }) => (
     <Page active={active} pageTitle="Calculations" navList={navList}>
       <h2 className="sub-title">
         Alcohol By Volume
       </h2>
       <div id="calculator-page">
-        <div id="calculator-box">      
-          
+        <div id="calculator-box">
           <div className="content-box">
             <CalculatorABV />
-          
           </div>
         </div>
         <div id="calculator-selector">
@@ -23,9 +25,12 @@ const Calculations = ({navList, active}) => {
           </select>
         </div>
       </div>
-      
     </Page>
-  )
-}
+);
 
-export default Calculations
+export default Calculations;
+
+Calculations.propTypes = {
+  navList: PropTypes.arrayOf(PropTypes.string),
+  active: PropTypes.string,
+};
