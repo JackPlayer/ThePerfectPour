@@ -1,13 +1,12 @@
-import React from 'react'
-import Page from './reusable/Page'
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
+import Page from './reusable/Page';
 
-
-const History = ({navList, active}) => {
-  return (
+const History = ({ navList, active }) => (
     <Page active={active} pageTitle="History" navList={navList}>
       <div id="history-page">
         <div id="brewing">
@@ -78,7 +77,11 @@ const History = ({navList, active}) => {
         </div>
       </div>
     </Page>
-  )
-}
+);
 
-export default History
+export default History;
+
+History.propTypes = {
+  navList: PropTypes.arrayOf(PropTypes.string),
+  active: PropTypes.string,
+};
