@@ -1,13 +1,15 @@
-import React from 'react'
+/**
+ * Footer.js
+ * Standard footer for all components of the application
+ */
 
-const Footer = ({navList}) => {
+import React from 'react';
 
-  return (
+const Footer = () => (
     <footer id="footer">
       <p>Built with &hearts; in Victoria, BC</p>
       <p>&copy; 2020 The Perfect Pour</p>
     </footer>
-  )
-}
+);
 
-export default Footer
+export default Footer;
