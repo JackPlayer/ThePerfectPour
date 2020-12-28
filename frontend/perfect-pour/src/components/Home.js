@@ -1,15 +1,21 @@
-import React from 'react'
-import Page from './reusable/Page'
-import NewBrewForm from './NewBrewForm'
-import NewRecipeForm from './NewRecipeForm'
+/**
+ * Home.js
+ * React component for the home page.
+ */
 
-import hops from '../assets/hops.svg'
-import wheat from '../assets/wheat.svg'
-import carbonation from '../assets/reaction.svg'
-import beers from '../assets/beers.svg'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Page from './reusable/Page';
+import NewBrewForm from './NewBrewForm';
+import NewRecipeForm from './NewRecipeForm';
 
-const Home = ({navList, active}) => {
-  const username = "Jack"
+import hops from '../assets/hops.svg';
+import wheat from '../assets/wheat.svg';
+import carbonation from '../assets/reaction.svg';
+import beers from '../assets/beers.svg';
+
+const Home = ({ navList, active }) => {
+  const username = 'Jack';
   return (
     <Page active={active} pageTitle={`Welcome back ${username}...`} navList={navList}>
       <div id="home-page">
@@ -49,7 +55,7 @@ const Home = ({navList, active}) => {
                       <td>Beer3</td>
                     </tr>
                   </tbody>
-                </table>  
+                </table>
               </div>
 
               <div className="progress-table">
@@ -70,7 +76,7 @@ const Home = ({navList, active}) => {
                       <td>December 20, 2020</td>
                       <td>Beer1</td>
                     </tr>
-        
+
                   </tbody>
                 </table>
               </div>
@@ -122,7 +128,7 @@ const Home = ({navList, active}) => {
               </div>
             </div>
         </div>
-        
+
         <div id="create-section">
           <div id="create-recipe">
             <h2 className="sub-title">New Recipe</h2>
@@ -139,7 +145,12 @@ const Home = ({navList, active}) => {
         </div>
       </div>
     </Page>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
+
+Home.propTypes = {
+  navList: PropTypes.arrayOf(PropTypes.string),
+  active: PropTypes.string,
+};

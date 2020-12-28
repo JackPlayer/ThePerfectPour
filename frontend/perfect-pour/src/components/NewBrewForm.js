@@ -1,3 +1,8 @@
+/**
+ * NewBrewForm.js
+ * React component for starting a new brew
+ */
+
 import React from 'react';
 
 const NewBrewForm = () => (

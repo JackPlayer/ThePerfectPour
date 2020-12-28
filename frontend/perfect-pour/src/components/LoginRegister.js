@@ -1,15 +1,19 @@
-import React from 'react'
-import Page from './reusable/Page'
-import { useHistory } from 'react-router-dom'
+/**
+ * LoginRegister.js
+ * React component for logging in or registering for the site.
+ */
+
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+import Page from './reusable/Page';
 
 const LoginRegister = () => {
-  const history = useHistory()
+  const history = useHistory();
   const handleLogin = () => {
-    history.push('/home')
-  }
+    history.push('/home');
+  };
 
-  const renderLogin = () => {
-    return (
+  const renderLogin = () => (
       <div id="login">
         <h2>Login</h2>
         <form id="login-form" onSubmit={() => handleLogin()}>
@@ -17,22 +21,18 @@ const LoginRegister = () => {
             <label>Email</label>
             <input type="email"></input>
           </div>
-        
 
           <div className="form-field">
             <label>Password</label>
             <input type="password"></input>
           </div>
-          
 
           <button className="btn-primary" type="submit">Login</button>
         </form>
       </div>
-    )
-  }
+  );
 
-  const renderRegister = () => {
-    return (
+  const renderRegister = () => (
       <div id="register">
         <h2>Create Account</h2>
         <form id="register-form">
@@ -49,21 +49,19 @@ const LoginRegister = () => {
             <label>Password</label>
             <input type="password"></input>
           </div>
-          
 
           <button className="btn-primary" type="submit">Sign Up</button>
         </form>
       </div>
-    )
-  }
+  );
   return (
     <Page login={true}>
         <div id="login-reg-page">
           {renderLogin()}
           <div className="vertical-divider"></div>
           {renderRegister()}
-        </div>      
+        </div>
     </Page>
-  )
-}
-export default LoginRegister
+  );
+};
+export default LoginRegister;

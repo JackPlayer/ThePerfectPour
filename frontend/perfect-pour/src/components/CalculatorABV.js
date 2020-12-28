@@ -27,7 +27,7 @@ const CalculatorABV = () => {
       } else {
         setABV(`${calculateABV(Number(originalGravity), Number(finalGravity)).toFixed(2)}%`);
       }
-    } catch (e) {
+    } catch (err) {
       setABV('N/A (Input Error)');
     }
   };
