@@ -1,22 +1,29 @@
-import React, {useState} from 'react'
-import { hopTypes } from '../data/beerData'
+/**
+ * NewRecipeForm.js
+ * React component for creating a new recipe
+ */
+import React, { useState } from 'react';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
+import { hopTypes } from '../data/beerData';
 
 const NewRecipeForm = () => {
-  const [hopFilter, setHopFilter] = useState('')
+  const [hopFilter, setHopFilter] = useState('');
 
   const renderHopOptions = () => {
     if (hopTypes.length > 0) {
       return hopTypes.filter((hop) => hop.includes(hopFilter)).map((hop) => {
         const hopKey = hop.replace(/\s+/g, '-').toLowerCase();
         return (
-          <option value={hop} key={hopKey}>{hop}</option> 
-        )
-      })
+          <option value={hop} key={hopKey}>{hop}</option>
+        );
+      });
     }
-  }
+    return (
+      <p>Hop types failed to load!</p>
+    );
+  };
   return (
     <form id="recipe-form">
       <p>Create a new recipe by filling out the contents below</p>
@@ -51,20 +58,20 @@ const NewRecipeForm = () => {
           <div className="form-field">
             <label>Amount</label>
             <div>
-              <input type="number"  min="0" />
+              <input type="number" min="0" />
               <span> oz</span>
-            </div>   
+            </div>
           </div>
 
           <div className="form-field">
             <label>Timing</label>
             <div >
-              <input type="number"  min="0" max="120"/>
+              <input type="number" min="0" max="120"/>
               <span> min</span>
-            </div>   
+            </div>
           </div>
         </div>
-        
+
         <FontAwesomeIcon className="fa-icon" icon={faPlusCircle} />
         <table>
           <tr>
@@ -80,15 +87,16 @@ const NewRecipeForm = () => {
             <td><FontAwesomeIcon icon={faMinusCircle} /></td>
           </tr>
           <tr>
-            <td>Eve</td>
-            <td>Jackson</td>
-            <td>94</td>
+            <td>Citra</td>
+            <td>1</td>
+            <td>40</td>
+            <td><FontAwesomeIcon icon={faMinusCircle} /></td>
           </tr>
         </table>
       </div>
-      
-    </form>
-  )
-}
 
-export default NewRecipeForm
+    </form>
+  );
+};
+
+export default NewRecipeForm;

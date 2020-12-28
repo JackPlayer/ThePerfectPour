@@ -1,9 +1,9 @@
-import React from 'react' 
+import React from 'react';
 
-const NewBrewForm = () => {
-  return (
+const NewBrewForm = () => (
     <form id="brew-form">
-      <p>Select the recipe you want to brew and click start! You can add recipes in the new recipe field.</p>
+      <p>Select the recipe you want to brew and click start!
+        You can add recipes in the new recipe field.</p>
       <div className="form-field">
         <label>Recipe</label>
         <select>
@@ -15,7 +15,6 @@ const NewBrewForm = () => {
       </div>
       <button type="submit">Start</button>
     </form>
-  )
-}
+);
 
-export default NewBrewForm
+export default NewBrewForm;
