@@ -29,10 +29,12 @@ const Home = ({ navList, active }) => {
                 </div>
                 <table>
                   <thead>
-                    <th>Name</th>
-                    <th>Style</th>
-                    <th>Started</th>
-                    <th>Next Step</th>
+                    <tr>
+                      <th>Name</th>
+                      <th>Style</th>
+                      <th>Started</th>
+                      <th>Next Step</th>
+                    </tr>
                   </thead>
                   <tbody>
                     <tr>
@@ -64,10 +66,12 @@ const Home = ({ navList, active }) => {
                 </div>
                 <table>
                   <thead>
-                    <th>Name</th>
-                    <th>Style</th>
-                    <th>Started</th>
-                    <th>Next Step</th>
+                    <tr>
+                      <th>Name</th>
+                      <th>Style</th>
+                      <th>Started</th>
+                      <th>Next Step</th>
+                    </tr>
                   </thead>
                   <tbody>
                     <tr>
@@ -87,10 +91,13 @@ const Home = ({ navList, active }) => {
                 </div>
                 <table>
                   <thead>
-                    <th>Name</th>
-                    <th>Style</th>
-                    <th>Started</th>
-                    <th>Next Step</th>
+                    <tr>
+                      <th>Name</th>
+                      <th>Style</th>
+                      <th>Started</th>
+                      <th>Next Step</th>
+                    </tr>
+
                   </thead>
                   <tbody>
                   </tbody>
@@ -102,9 +109,11 @@ const Home = ({ navList, active }) => {
                 </div>
                 <table>
                   <thead>
-                    <th>Name</th>
-                    <th>Style</th>
-                    <th>Finished</th>
+                    <tr>
+                      <th>Name</th>
+                      <th>Style</th>
+                      <th>Finished</th>
+                    </tr>
                   </thead>
                   <tbody>
                     <tr>
