@@ -4,9 +4,11 @@
  */
 import React, { useState } from 'react';
 import HopForm from './HopForm';
+import GrainForm from './GrainForm';
 
 const NewRecipeForm = () => {
   const [hops, setHops] = useState([]);
+  const [grains, setGrains] = useState([]);
 
   return (
     <form id="recipe-form">
@@ -29,6 +31,7 @@ const NewRecipeForm = () => {
         </select>
       </div>
       <HopForm hops={hops} setHops={setHops} />
+      <GrainForm grains={grains} setGrains={setGrains} />
     </form>
   );
 };
