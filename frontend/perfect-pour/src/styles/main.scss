@@ -152,6 +152,12 @@ body {
   }
 }
 
+.btn-fa {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 #logout {
   align-self: center;
   margin: 10px;

@@ -3,13 +3,43 @@
  * React component for creating a new recipe
  */
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlusCircle, faMinusCircle } from '@fortawesome/free-solid-svg-icons';
 import { hopTypes } from '../data/beerData';
 
 const NewRecipeForm = () => {
+  const [hops, setHops] = useState([]);
   const [hopFilter, setHopFilter] = useState('');
+  const [hopTiming, setHopTiming] = useState('');
+  const [hopAmount, setHopAmount] = useState('');
+  const [hopSelected, setHopSelected] = useState('');
+
+  const handleAddHop = () => {
+    if (hopTiming.length === 0 || hopAmount.length === 0 || hopSelected.length === 0) return;
+    const newHop = {
+      id: uuidv4(),
+      name: hopSelected,
+      time: hopTiming,
+      amount: hopAmount,
+    };
+    setHops(hops.concat(newHop));
+  };
+
+  const handleDeleteHop = (id) => {
+    const newHops = hops.filter((hop) => hop.id !== id);
+    setHops(newHops);
+  };
+
+  const renderAddedHops = () => hops.map((hop) => (
+      <tr key={hop.id}>
+        <td>{hop.name}</td>
+        <td>{hop.amount}</td>
+        <td>{hop.time}</td>
+        <td><FontAwesomeIcon onClick={() => handleDeleteHop(hop.id)} icon={faMinusCircle} className="btn-fa"/></td>
+      </tr>
+  ));
 
   const renderHopOptions = () => {
     if (hopTypes.length > 0) {
@@ -24,6 +54,7 @@ const NewRecipeForm = () => {
       <p>Hop types failed to load!</p>
     );
   };
+
   return (
     <form id="recipe-form">
       <p>Create a new recipe by filling out the contents below</p>
@@ -50,7 +81,7 @@ const NewRecipeForm = () => {
         <div className="form-field">
           <label>Hop Selector</label>
           <input placeholder="Filter" type="text" onChange={(e) => setHopFilter(e.target.value)}></input>
-          <select>
+          <select onChange={(e) => setHopSelected(e.target.value)}>
             {renderHopOptions()}
           </select>
         </div>
@@ -58,7 +89,7 @@ const NewRecipeForm = () => {
           <div className="form-field">
             <label>Amount</label>
             <div>
-              <input type="number" min="0" />
+              <input onChange={(e) => setHopAmount(e.target.value)} type="number" min="0" />
               <span> oz</span>
             </div>
           </div>
@@ -66,13 +97,13 @@ const NewRecipeForm = () => {
           <div className="form-field">
             <label>Timing</label>
             <div >
-              <input type="number" min="0" max="120"/>
+              <input onChange={(e) => setHopTiming(e.target.value)} type="number" min="0" max="120"/>
               <span> min</span>
             </div>
           </div>
         </div>
 
-        <FontAwesomeIcon className="fa-icon" icon={faPlusCircle} />
+        <FontAwesomeIcon onClick={() => handleAddHop()} className="fa-icon btn-fa" icon={faPlusCircle} />
         <table>
           <tr>
             <th>Name</th>
@@ -80,18 +111,7 @@ const NewRecipeForm = () => {
             <th>Time</th>
             <th>Delete</th>
           </tr>
-          <tr>
-            <td>Cascade</td>
-            <td>1.5</td>
-            <td>60</td>
-            <td><FontAwesomeIcon icon={faMinusCircle} /></td>
-          </tr>
-          <tr>
-            <td>Citra</td>
-            <td>1</td>
-            <td>40</td>
-            <td><FontAwesomeIcon icon={faMinusCircle} /></td>
-          </tr>
+          {renderAddedHops()}
         </table>
       </div>
 
