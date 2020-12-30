@@ -4,7 +4,7 @@
  */
 
 import './styles/main.scss';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Redirect,
 } from 'react-router-dom';
@@ -15,6 +15,8 @@ import Calculations from './components/Calculations';
 
 const App = () => {
   const navList = ['home', 'history', 'calculations'];
+  const [recipes, setRecipes] = useState([]);
+  // const [brews, setBrews] = useState([]);
 
   const renderMainApp = () => (
       <Router >
@@ -24,7 +26,7 @@ const App = () => {
               <LoginRegister />
             </Route>
             <Route path="/home">
-              <Home active="home" navList={navList} />
+              <Home active="home" setRecipes={setRecipes} recipes={recipes} navList={navList} />
             </Route>
 
             <Route path="/history">

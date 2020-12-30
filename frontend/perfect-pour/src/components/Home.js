@@ -14,7 +14,9 @@ import wheat from '../assets/wheat.svg';
 import carbonation from '../assets/reaction.svg';
 import beers from '../assets/beers.svg';
 
-const Home = ({ navList, active }) => {
+const Home = ({
+  navList, active, recipes, setRecipes,
+}) => {
   const username = 'Jack';
   return (
     <Page active={active} pageTitle={`Welcome back ${username}...`} navList={navList}>
@@ -142,13 +144,13 @@ const Home = ({ navList, active }) => {
           <div id="create-recipe">
             <h2 className="sub-title">New Recipe</h2>
             <div className="content-box">
-              <NewRecipeForm />
+              <NewRecipeForm recipes={recipes} setRecipes={setRecipes}/>
             </div>
           </div>
           <div id="create-brew">
             <h2 className="sub-title">New Brew</h2>
             <div className="content-box">
-              <NewBrewForm />
+              <NewBrewForm recipes={recipes}/>
             </div>
           </div>
         </div>
@@ -162,4 +164,6 @@ export default Home;
 Home.propTypes = {
   navList: PropTypes.arrayOf(PropTypes.string),
   active: PropTypes.string,
+  recipes: PropTypes.arrayOf(PropTypes.object),
+  setRecipes: PropTypes.func,
 };
