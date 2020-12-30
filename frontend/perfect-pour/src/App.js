@@ -30,7 +30,7 @@ const App = () => {
             </Route>
 
             <Route path="/history">
-              <History active="history" navList={navList} />
+              <History recipes={recipes} active="history" navList={navList} />
             </Route>
 
             <Route path="/calculations">

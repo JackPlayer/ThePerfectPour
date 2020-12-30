@@ -6,7 +6,15 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import Page from './reusable/Page';
 
-const History = ({ navList, active }) => (
+const History = ({ navList, active, recipes }) => {
+  const renderRecipes = () => recipes.map((recipe) => (
+        <tr key={recipe.id}>
+          <td>{recipe.name}</td>
+          <td>{recipe.style}</td>
+          <td><FontAwesomeIcon icon={faSearch}/></td>
+        </tr>
+  ));
+  return (
     <Page active={active} pageTitle="History" navList={navList}>
       <div id="history-page">
         <div id="brewing">
@@ -16,35 +24,17 @@ const History = ({ navList, active }) => (
           <div className="content-box" id="brewing-content">
             <table>
               <thead>
-                <th>Name</th>
-                <th>Style</th>
-                <th>Size</th>
-                <th>Started</th>
-                <th>Finished</th>
-              </thead>
-              <tbody>
                 <tr>
-                  <td>Beer1</td>
-                  <td>Stout</td>
-                  <td>5 gal</td>
-                  <td>December 20, 2020</td>
-                  <td>Beer1</td>
+                  <th>Name</th>
+                  <th>Style</th>
+                  <th>Size</th>
+                  <th>Started</th>
+                  <th>Finished</th>
                 </tr>
 
-                <tr>
-                  <td>Beer2</td>
-                  <td>Beer2</td>
-                  <td>Beer2</td>
-                  <td>Beer2</td>
-                  <td>Beer2</td>
-                </tr>
-                <tr>
-                  <td>Beer3</td>
-                  <td>Beer3</td>
-                  <td>Beer3</td>
-                  <td>Beer3</td>
-                  <td>Beer3</td>
-                </tr>
+              </thead>
+              <tbody>
+
               </tbody>
             </table>
           </div>
@@ -61,27 +51,20 @@ const History = ({ navList, active }) => (
                  <th>Info</th>
                </thead>
                <tbody>
-                 <tr>
-                  <td>Irish Stout</td>
-                  <td>Stout</td>
-                  <td><FontAwesomeIcon icon={faSearch}/></td>
-                 </tr>
-                 <tr>
-                  <td>Christmas IPA</td>
-                  <td>New England IPA</td>
-                  <td><FontAwesomeIcon icon={faSearch}/></td>
-                 </tr>
+                 {renderRecipes()}
                </tbody>
              </table>
           </div>
         </div>
       </div>
     </Page>
-);
+  );
+};
 
 export default History;
 
 History.propTypes = {
   navList: PropTypes.arrayOf(PropTypes.string),
   active: PropTypes.string,
+  recipes: PropTypes.arrayOf(PropTypes.object),
 };
