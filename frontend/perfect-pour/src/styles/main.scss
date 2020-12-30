@@ -60,7 +60,6 @@ form {
   input {
     border: none;
     background-color: $col-background;
-    margin-top: 3px;
     padding: 0.3rem 0.8rem;
     border: 1px solid $col-outline;
     border-radius: 7px;
@@ -69,6 +68,8 @@ form {
   }
   select {
     padding: 0.3rem 0.8rem;
+  }
+  textarea, select, input {
     margin-top: 3px;
   }
 }
@@ -123,6 +124,20 @@ body {
 }
 
 // buttons
+.btn-form {
+  padding: 0.5rem 1rem;
+  border: 1px solid $col-dark;
+  border-radius: 7px;
+  margin-top: 10px;
+  &:hover {
+    cursor: pointer; 
+    background-color: $col-dark;
+    border: 1px solid $col-light;
+    border-radius: 7px;
+    color: $col-light;
+
+  }
+}
 .btn-primary {
   color: $col-light;
   background-color: $col-primary;
@@ -281,7 +296,7 @@ footer#footer {
     flex-direction: row;
     justify-content: space-between;
     > div {
-      width: 45%;
+      width: 49%;
     }
   }
 

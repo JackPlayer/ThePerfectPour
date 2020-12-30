@@ -18,7 +18,7 @@ const NewBrewForm = () => (
           <option value="recipe-4">Raspberry Wheat Ale, Phillips Clone</option>
         </select>
       </div>
-      <button type="submit">Start</button>
+      <button type="submit" className="btn-form">Start</button>
     </form>
 );
 

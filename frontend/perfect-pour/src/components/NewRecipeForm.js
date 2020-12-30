@@ -30,8 +30,16 @@ const NewRecipeForm = () => {
           <option value="extract">Extract</option>
         </select>
       </div>
+
+      <div className="form-field">
+        <label>Description</label>
+        <textarea rows="4">
+
+        </textarea>
+      </div>
       <HopForm hops={hops} setHops={setHops} />
       <GrainForm grains={grains} setGrains={setGrains} />
+      <button type="submit" className="btn-form">Create</button>
     </form>
   );
 };
