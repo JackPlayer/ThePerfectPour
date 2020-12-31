@@ -10,4 +10,5 @@ Contains:
 * Calculations Page for useful tools such as abv calculator 
 * History page to show the recipes used and the brews that have been done
 ### Backend
-Uses MongoDB and ApolloServer with GraphQL 
+* PostgreSQL Database
+* GraphQL Server
