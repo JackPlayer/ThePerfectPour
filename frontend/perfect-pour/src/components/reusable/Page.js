@@ -25,12 +25,12 @@ const Page = ({
       <Header active={active} navList={navList}/>
       <div className="content">
         <div className="container">
-        { pageTitle && <h1 className="page-title">{pageTitle}</h1> }
+        { pageTitle && <h1 data-testid="page-title" className="page-title">{pageTitle}</h1> }
           {children}
         </div>
       </div>
       { !login && (<div id="logout">
-        <button className='btn-secondary' onClick={() => handleLogout()}>Logout</button>
+        <button data-testid="logout-btn" className='btn-secondary' onClick={() => handleLogout()}>Logout</button>
       </div>) }
       <Footer />
     </>
