@@ -20,12 +20,12 @@ const Header = ({ navList, active }) => {
     ));
 
     return (
-      <ul id="main-navigation">{listItems}</ul>
+      <ul data-testid="main-nav" id="main-navigation">{listItems}</ul>
     );
   };
   return (
-    <header id="header">
-      <h1>The perfect pour</h1>
+    <header data-testid="header" id="header">
+      <h1 data-testid="title">The perfect pour</h1>
       {navList && renderNavigation(navList)}
     </header>
   );

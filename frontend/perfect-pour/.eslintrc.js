@@ -5,4 +5,7 @@ module.exports = {
       version: 'detect',
     },
   },
+  env: {
+    jest: true,
+  },
 };
