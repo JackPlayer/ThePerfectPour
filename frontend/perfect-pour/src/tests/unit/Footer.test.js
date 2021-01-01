@@ -12,7 +12,6 @@ describe('<Footer />', () => {
     const component = render(<Footer />);
     const footer = component.getByTestId('footer');
     expect(footer).toHaveTextContent('The Perfect Pour');
-    expect(footer).toHaveTextContent('2020');
   });
 
   it('has the current year', () => {

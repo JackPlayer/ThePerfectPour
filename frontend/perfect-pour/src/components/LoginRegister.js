@@ -16,7 +16,7 @@ const LoginRegister = () => {
   const renderLogin = () => (
       <div id="login">
         <h2>Login</h2>
-        <form id="login-form" onSubmit={() => handleLogin()}>
+        <form data-testid="login-form" id="login-form" onSubmit={() => handleLogin()}>
           <div className="form-field">
             <label>Email</label>
             <input type="email"></input>
@@ -35,7 +35,7 @@ const LoginRegister = () => {
   const renderRegister = () => (
       <div id="register">
         <h2>Create Account</h2>
-        <form id="register-form">
+        <form data-testid="register-form" id="register-form">
           <div className="form-field">
             <label>Email</label>
             <input type="email"></input>
