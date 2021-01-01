@@ -22,7 +22,7 @@ const History = ({ navList, active, recipes }) => {
             Brewing
           </h2>
           <div className="content-box" id="brewing-content">
-            <table>
+            <table data-testid="brewing-table">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -44,11 +44,13 @@ const History = ({ navList, active, recipes }) => {
             Recipes
           </h2>
           <div className="content-box" id="recipe-content">
-             <table>
+             <table data-testid="recipe-table">
                <thead>
-                 <th>Name</th>
-                 <th>Style</th>
-                 <th>Info</th>
+                 <tr>
+                  <th>Name</th>
+                  <th>Style</th>
+                  <th>Info</th>
+                 </tr>
                </thead>
                <tbody>
                  {renderRecipes()}
