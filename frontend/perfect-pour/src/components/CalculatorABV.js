@@ -3,7 +3,7 @@
  * React component for Alcohol by volume calculator
  */
 import React, { useState } from 'react';
-import { calculateABV, platoToSg } from '../calculators/calc-abv';
+import { calculateABV, platoToSg } from '../functions/calc-abv';
 
 const CalculatorABV = () => {
   const [abv, setABV] = useState('');
