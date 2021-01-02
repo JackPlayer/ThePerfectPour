@@ -1,23 +1,23 @@
 /**
- * Checks if the input date is after the current date
+ * Checks if the current date is after the input date
  *
  * @param {Date} date Date to check
  * @returns {boolean} true if the current date is after
  */
 const isDateAfter = (date) => {
   const currDate = new Date();
-  return currDate < date;
+  return currDate > date;
 };
 
 /**
- * Checks if the input date is before the current date
+ * Checks if the current date is before the input date
  *
  * @param {Date} date Date to check
  * @returns {boolean} true if the current date is before the input date
  */
 const isDateBefore = (date) => {
   const currDate = new Date();
-  return currDate > date;
+  return currDate < date;
 };
 
 /**
