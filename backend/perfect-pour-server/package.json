@@ -4,7 +4,8 @@
   "description": "Server for the perfect pour application",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node ./src"
   },
   "author": "Jack Player",
   "license": "ISC",

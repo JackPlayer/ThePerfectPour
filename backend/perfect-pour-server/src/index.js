@@ -2,11 +2,11 @@
  * Server for perfect pour application
  */
 const { ApolloServer } = require('apollo-server')
-const { schema } = require('./schema/schema')
+const { typeDefs } = require('./typeDefs')
+const { resolvers } = require('./resolvers')
 
-const server = new ApolloServer({schema});
+const server = new ApolloServer({typeDefs, resolvers});
 
 server.listen().then(({url}) => {
   console.log(`🚀  Server ready at ${url}`);
-
 })

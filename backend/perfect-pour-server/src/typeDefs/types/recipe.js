@@ -1,6 +1,6 @@
 const { gql } = require('apollo-server') 
 
-const typeDef = gql`
+const recipeType = gql`
   type Recipe {
     id: ID!
     user: User,
@@ -16,5 +16,5 @@ const typeDef = gql`
   }
 `
 module.exports = {
-  Recipe: typeDef,
+  recipeType,
 }

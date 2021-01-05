@@ -1,7 +1,7 @@
 const { gql } = require('apollo-server') 
 
 
-const typeDef = gql`
+const hopType = gql`
   type Hop {
     id: ID!,
     name: String!
@@ -11,5 +11,5 @@ const typeDef = gql`
 `
 
 module.exports = {
-  Hop: typeDef,
+  hopType,
 }

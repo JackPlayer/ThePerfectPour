@@ -1,5 +1,5 @@
 const { gql } = require('apollo-server') 
-const typeDef = gql`
+const query = gql`
   type Query {
     getUser: User,
     getRecipes: [Recipe],
@@ -8,5 +8,5 @@ const typeDef = gql`
 `
 
 module.exports = {
-  Query: typeDef,
+  query,
 }
