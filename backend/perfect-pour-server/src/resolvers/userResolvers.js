@@ -1,4 +1,4 @@
-const { db } = require('../db')
+const db = require('../db')
 const { bcrypt } = require('bcrypt')
 const { v4: uuidv4 } = require('uuid');
 
@@ -12,7 +12,7 @@ const userResolvers = {
     Mutation: {
         createUser: async (root, {email, password, username}) => {
             const existingUserQuery = await db.query('SELECT username from accounts WHERE username=$1;', [username])
-        
+            console.log(existingUserQuery);
             if (existingUserQuery.rowCount !== 0 || email.length === 0 || password.length === 0 || username.length === 0) return null;
         
             const saltRounds = 10;
