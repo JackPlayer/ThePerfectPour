@@ -1,11 +1,11 @@
 const recipeResolvers = {
-    Query: {
-        getRecipes: (userID) => {
-            return null;
-          },
-    }
-}
+  Query: {
+    getRecipes: (userID) => {
+      return null;
+    },
+  },
+};
 
 module.exports = {
-    recipeResolvers,
+  recipeResolvers,
 };

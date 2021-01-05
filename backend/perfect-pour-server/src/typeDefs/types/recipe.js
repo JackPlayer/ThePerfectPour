@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server') 
+const {gql} = require('apollo-server');
 
 const recipeType = gql`
   type Recipe {
@@ -14,7 +14,7 @@ const recipeType = gql`
     addition: [Addition],
     created: String!
   }
-`
+`;
 module.exports = {
   recipeType,
-}
+};

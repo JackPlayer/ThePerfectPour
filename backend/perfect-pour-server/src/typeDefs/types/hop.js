@@ -1,4 +1,4 @@
-const { gql } = require('apollo-server') 
+const {gql} = require('apollo-server');
 
 
 const hopType = gql`
@@ -8,8 +8,8 @@ const hopType = gql`
     amount: Float!
     timing: Int!
   }
-`
+`;
 
 module.exports = {
   hopType,
-}
+};

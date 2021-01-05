@@ -1,11 +1,11 @@
 const brewResolvers = {
-    Query: {
-        getBrews: (userID) => {
-            return null;
-          },
-    }
-}
+  Query: {
+    getBrews: (userID) => {
+      return null;
+    },
+  },
+};
 
 module.exports = {
-    brewResolvers,
-}
+  brewResolvers,
+};
