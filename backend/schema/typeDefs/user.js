@@ -5,7 +5,7 @@ const typeDef = gql`
   type User {
     id: ID!,
     username: String!,
-    pass_hash: String!,
+    passHash: String!,
     email: String!
   }
 `

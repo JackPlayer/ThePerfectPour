@@ -9,12 +9,13 @@ const { Addition } = require('./typeDefs/addition')
 const { Query } = require('./typeDefs/query')
 const { Mutation } = require('./typeDefs/mutation')
 
+const {QueryResolver, MutationResolver} = require('./resolvers/resolvers')
+
 const schema = makeExecutableSchema({
   typeDefs: [User, Recipe, Brew, Addition, Hop, Query, Mutation],
   resolvers: {
-    Query: {
-      dummy: () => db.query('SELECT * FROM accounts', (err, res) => console.log(res))
-    }
+    Query: QueryResolver,
+    Mutation: MutationResolver,
   },
 })
 
