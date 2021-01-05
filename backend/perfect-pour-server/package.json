@@ -1,0 +1,20 @@
+{
+  "name": "perfect-pour-server",
+  "version": "1.0.0",
+  "description": "Server for the perfect pour application",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Jack Player",
+  "license": "ISC",
+  "dependencies": {
+    "apollo-server": "^2.19.1",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "graphql": "^15.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.5.1",
+    "uuid": "^8.3.2"
+  }
+}

@@ -297,8 +297,11 @@ footer#footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    > div {
-      width: 49%;
+    > div:nth-child(1) {
+      width: 62%;
+    }
+    > div:nth-child(2) {
+      width: 35%
     }
   }
 
@@ -307,8 +310,16 @@ footer#footer {
   }
 
   #progress-box {
-    display: grid;
-    grid-template-columns: 50% 50%;
+    display: flex;
+    .progress-table {
+      width: 100%;
+    }
+
+    p {
+      margin-left: 10px;
+    }
+    flex-grow: 1;
+    justify-content: space-around;
   }
 
   .progress-table {
