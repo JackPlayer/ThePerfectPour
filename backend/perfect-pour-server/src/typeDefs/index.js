@@ -5,6 +5,7 @@ const {userType,
   additionType,
   brewType,
   recipeType,
+  tokenType,
 } = require('./types');
 
 const typeDefs = [
@@ -15,6 +16,7 @@ const typeDefs = [
   additionType,
   brewType,
   recipeType,
+  tokenType,
 ];
 
 module.exports = {

@@ -10,4 +10,5 @@ module.exports = {
   hopType,
   recipeType,
   userType,
+  tokenType,
 };
