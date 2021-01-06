@@ -1,7 +1,7 @@
 const {gql} = require('apollo-server');
 const query = gql`
   type Query {
-    getUser: User,
+    getUserFromUsername(username: String!): User,
     getRecipes: [Recipe],
     getBrews: [Brew],
   }
