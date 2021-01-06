@@ -1,5 +1,8 @@
+require('dotenv').config();
 const db = require('../db');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const {AuthenticationError, UserInputError} = require('apollo-server');
 const {userQueries} = require('../queries');
 const {v4: uuidv4} = require('uuid');
 
@@ -46,6 +49,28 @@ const userResolvers = {
         username,
         email,
       });
+    },
+
+    login: async (root, {username, password}) => {
+      if (username === undefined || password === undefined) {
+        throw new UserInputError('Login arguments unspecified.');
+      };
+      const userResults = await db.query(
+          userQueries.getUserByUsername(username),
+      );
+
+      if (userResults.rowCount !== 1) throw new UserInputError('Invalid user');
+
+      const compPass = userResults.rows[0].pass_hash;
+
+      const isMatch = await bcrypt.compare(password, compPass);
+      if (!isMatch) {
+        throw new AuthenticationError('Invalid username or password');
+      }
+
+      return {
+        value: jwt.sign(username, process.env.SECRET),
+      };
     },
   },
 };
