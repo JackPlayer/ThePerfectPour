@@ -6,6 +6,11 @@ const mutation = gql`
       email: String!, 
       password: String!,
     ): User
+
+    login (
+      username: String!,
+      password: String!,
+    ): Token
   }
 `;
 
