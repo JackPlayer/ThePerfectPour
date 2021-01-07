@@ -18,23 +18,18 @@ const App = () => {
   const navList = ['home', 'history', 'calculations'];
   const [recipes, setRecipes] = useState([]);
   const [message, setMessage] = useState('');
+  const [user, setUser] = useState(null);
 
   const renderMainApp = () => (
       <Router >
         <div className="app">
-          <PopUp message={message} setMessage={setMessage}/>
           <Switch>
-            <Route path="/login">
-              <LoginRegister />
-            </Route>
             <Route path="/home">
               <Home active="home" setRecipes={setRecipes} recipes={recipes} navList={navList} />
             </Route>
-
             <Route path="/history">
               <History recipes={recipes} active="history" navList={navList} />
             </Route>
-
             <Route path="/calculations">
               <Calculations active="calculations" navList={navList} />
             </Route>
@@ -44,23 +39,23 @@ const App = () => {
       </Router>
   );
 
-  // Unimplemented for now.
-  /* const renderLogin = () => (
+  const renderLogin = () => (
       <Router>
-        <div className="app">
-          <Switch>
-            <Route path="/login">
-              <LoginRegister />
-            </Route>
-            <Route render={() => <Redirect to="/login" />} />
-          </Switch>
-        </div>
-
+        <Switch>
+          <Route path="/login">
+            <LoginRegister setUser={setUser} setMessage={setMessage}/>
+          </Route>
+          <Route render={() => <Redirect to="/login" />} />
+        </Switch>
       </Router>
-  ); */
+  );
 
   return (
-    renderMainApp()
+    <div className="app">
+      <PopUp message={message} setMessage={setMessage}/>
+      {!user && renderLogin()}
+      {user && renderMainApp()}
+    </div>
   );
 };
 

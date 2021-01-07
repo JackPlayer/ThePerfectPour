@@ -18,6 +18,8 @@ const Page = ({
    * Logout handler. Sends the user back to /login
    */
   const handleLogout = () => {
+    // eslint-disable-next-line no-undef
+    localStorage.removeItem('perfectpour-token');
     history.push('/login');
   };
   return (

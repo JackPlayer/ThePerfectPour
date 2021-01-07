@@ -12,7 +12,7 @@ const PopUp = ({ message }) => {
     setTimeout(() => {
       setVisible(false);
     }, 4000);
-  }, message);
+  }, [message]);
 
   if (!visible) return null;
   return (
