@@ -22,4 +22,14 @@ mutation createUser($username: String!, $email: String!, $password: String!) {
 }
 `;
 
-export { LOGIN, CREATE_USER };
+const GET_USER = gql`
+query getUser($username: String!) {
+  getUserFromUsername(username: $username) {
+    username,
+    email,
+    id
+  }
+}
+`;
+
+export { LOGIN, CREATE_USER, GET_USER };

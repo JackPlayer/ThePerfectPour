@@ -5,11 +5,11 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useMutation } from '@apollo/client';
+import { useMutation, useLazyQuery } from '@apollo/client';
 import Page from './reusable/Page';
-import { LOGIN, CREATE_USER } from '../queries';
+import { LOGIN, CREATE_USER, GET_USER } from '../queries';
 
-const LoginRegister = ({ setUser, setMessage }) => {
+const LoginRegister = ({ setUser, setToken, setMessage }) => {
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [registerUsername, setRegisterUsername] = useState('');
@@ -22,34 +22,43 @@ const LoginRegister = ({ setUser, setMessage }) => {
     },
   });
 
-  const [create, createResult] = useMutation(CREATE_USER, {
+  const [create] = useMutation(CREATE_USER, {
     onError: () => {
       setMessage('Failed to create account.');
     },
   });
-  console.log(createResult);
+
+  const [findUser, userResult] = useLazyQuery(GET_USER);
+
   useEffect(() => {
     if (loginResult.data) {
       if (loginResult.data.login === null) return;
       const token = loginResult.data.login.value;
-      setUser(token);
+      setToken(token);
       // eslint-disable-next-line no-undef
       localStorage.setItem('perfectpour-token', token);
     }
-  }, [loginResult.data, setUser]);
 
-  const handleLogin = (e) => {
+    if (userResult.data) {
+      const { username, email, id } = userResult.data;
+      setUser({ username, email, id });
+    }
+  }, [loginResult.data, userResult.data, setUser]);
+
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     if (loginUsername.length === 0 || loginPassword.length === 0) {
       setMessage('Login fields must be filled.');
       return;
     }
-    login(
-      {
-        variables: { username: loginUsername, password: loginPassword },
-      },
-    );
+    await login({
+      variables: { username: loginUsername, password: loginPassword },
+    });
+
+    await findUser({
+      variables: { username: loginUsername },
+    });
   };
 
   const handleSignup = (e) => {
@@ -124,4 +133,5 @@ export default LoginRegister;
 LoginRegister.propTypes = {
   setMessage: PropTypes.func,
   setUser: PropTypes.func,
+  setToken: PropTypes.func,
 };

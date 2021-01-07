@@ -18,6 +18,7 @@ const App = () => {
   const navList = ['home', 'history', 'calculations'];
   const [recipes, setRecipes] = useState([]);
   const [message, setMessage] = useState('');
+  const [token, setToken] = useState('');
   const [user, setUser] = useState(null);
 
   const renderMainApp = () => (
@@ -43,7 +44,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route path="/login">
-            <LoginRegister setUser={setUser} setMessage={setMessage}/>
+            <LoginRegister setUser={setUser} setToken={setToken} setMessage={setMessage}/>
           </Route>
           <Route render={() => <Redirect to="/login" />} />
         </Switch>
@@ -53,8 +54,8 @@ const App = () => {
   return (
     <div className="app">
       <PopUp message={message} setMessage={setMessage}/>
-      {!user && renderLogin()}
-      {user && renderMainApp()}
+      {(!user || !token) && renderLogin()}
+      {(user && token) && renderMainApp()}
     </div>
   );
 };
