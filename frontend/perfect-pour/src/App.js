@@ -12,15 +12,17 @@ import LoginRegister from './components/LoginRegister';
 import History from './components/History';
 import Home from './components/Home';
 import Calculations from './components/Calculations';
+import PopUp from './components/PopUp';
 
 const App = () => {
   const navList = ['home', 'history', 'calculations'];
   const [recipes, setRecipes] = useState([]);
-  // const [brews, setBrews] = useState([]);
+  const [message, setMessage] = useState('');
 
   const renderMainApp = () => (
       <Router >
         <div className="app">
+          <PopUp message={message} setMessage={setMessage}/>
           <Switch>
             <Route path="/login">
               <LoginRegister />

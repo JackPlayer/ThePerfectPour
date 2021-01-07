@@ -244,6 +244,19 @@ footer#footer {
     width: 40%;
   }
 }
+
+#pop-up {
+  display: inline;
+  position:fixed;
+  margin: 0 auto;
+  z-index: 2;
+  background-color: $col-primary;
+  color: $col-light;
+  width: 20%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  left: 50%;
+}
 // Login Page 
 
 #login-reg-page {
