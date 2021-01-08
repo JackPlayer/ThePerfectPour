@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start": "node ./src",
-    "dev": "nodemon ./src",
+    "dev": "nodemon ./src/index.js",
     "lint": "eslint ./src"
   },
   "author": "Jack Player",

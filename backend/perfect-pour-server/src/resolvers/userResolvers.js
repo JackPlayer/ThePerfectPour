@@ -26,14 +26,17 @@ const userResolvers = {
   Mutation: {
     createUser: async (root, {email, password, username}) => {
       const existingUserQuery = await db.query(
-          userQueries.getUserByUsername(username),
+          userQueries.getUserByEmailOrUsername(username, email),
       );
-
-      if (existingUserQuery.rowCount !== 0 ||
+      if (existingUserQuery.rowCount !== 0) {
+        throw new UserInputError('User already exists!');
+      }
+      if (
         email.length === 0 ||
         password.length === 0 ||
-        username.length === 0) return null;
-
+        username.length === 0) {
+        throw new UserInputError('Arguments must be provided!');
+      }
       const saltRounds = 10;
       const passHash = await bcrypt.hash(password, saltRounds);
       const userID = uuidv4();

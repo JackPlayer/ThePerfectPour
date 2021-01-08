@@ -7,9 +7,18 @@ const getUserByUsername = (username) => {
   };
 };
 
-const getUserByEmail = () => {
-  const text = 'SELET * FROM accounts WHERE email=$1';
+const getUserByEmail = (email) => {
+  const text = 'SELECT * FROM accounts WHERE email=$1';
   const values = [email];
+  return {
+    text,
+    values,
+  };
+};
+
+const getUserByEmailOrUsername = (username, email) => {
+  const text = 'SELECT * FROM accounts WHERE email=$1 OR username=$2';
+  const values = [email, username];
   return {
     text,
     values,
@@ -34,6 +43,7 @@ module.exports = {
   userQueries: {
     getUserByUsername,
     getUserByEmail,
+    getUserByEmailOrUsername,
     newUser,
   },
 };

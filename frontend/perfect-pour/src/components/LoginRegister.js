@@ -5,11 +5,11 @@
 
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useMutation, useLazyQuery } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import Page from './reusable/Page';
-import { LOGIN, CREATE_USER, GET_USER } from '../queries';
+import { LOGIN, CREATE_USER } from '../queries';
 
-const LoginRegister = ({ setUser, setToken, setMessage }) => {
+const LoginRegister = ({ setUser, setMessage }) => {
   const [loginUsername, setLoginUsername] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [registerUsername, setRegisterUsername] = useState('');
@@ -25,26 +25,33 @@ const LoginRegister = ({ setUser, setToken, setMessage }) => {
   const [create] = useMutation(CREATE_USER, {
     onError: (e) => {
       console.log(e.message);
-      setMessage('Failed to create account.');
+      setMessage('Failed to create account. Username or email may already exist.');
+    },
+
+    onCompleted: (data) => {
+      console.log(data);
+      setMessage('Created new account');
     },
   });
-
-  const [findUser, userResult] = useLazyQuery(GET_USER);
 
   useEffect(() => {
     if (loginResult.data) {
       if (loginResult.data.login === null) return;
-      const token = loginResult.data.login.value;
-      setToken(token);
+      const loginData = loginResult.data.login;
+      const {
+        token, email, username, id,
+      } = loginData;
+      if (token.value === null) {
+        setMessage('Token authentication failed!');
+        return;
+      }
       // eslint-disable-next-line no-undef
-      localStorage.setItem('perfectpour-token', token);
+      localStorage.setItem('perfectpour-token', token.value);
+      setUser({
+        username, email, id, token,
+      });
     }
-
-    if (userResult.data) {
-      const { username, email, id } = userResult.data;
-      setUser({ username, email, id });
-    }
-  }, [loginResult.data, userResult.data, setUser]);
+  }, [loginResult.data, setUser]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -55,10 +62,6 @@ const LoginRegister = ({ setUser, setToken, setMessage }) => {
     }
     await login({
       variables: { username: loginUsername, password: loginPassword },
-    });
-
-    await findUser({
-      variables: { username: loginUsername },
     });
   };
 
@@ -74,8 +77,6 @@ const LoginRegister = ({ setUser, setToken, setMessage }) => {
       variables:
       { username: registerUsername, password: registerPassword, email: registerEmail },
     });
-
-    setMessage('New user created');
   };
 
   const renderLogin = () => (
@@ -134,5 +135,4 @@ export default LoginRegister;
 LoginRegister.propTypes = {
   setMessage: PropTypes.func,
   setUser: PropTypes.func,
-  setToken: PropTypes.func,
 };
