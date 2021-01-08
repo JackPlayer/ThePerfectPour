@@ -1,5 +1,8 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable no-undef */
+import './styles/main.scss';
+import './styles/fonts.scss';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { setContext } from 'apollo-link-context';

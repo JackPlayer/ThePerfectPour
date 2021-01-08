@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Swansea';
+    src: url('./fonts/Swansea.ttf');
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Swansea';
+    src: url('./fonts/Swansea-bold.ttf');
+    font-style: normal;
+    font-weight: bold;
+    font-size: 50px;
+    font-display: swap;
+    text-rendering: auto;
+}
+
+@font-face {
+    font-family: 'Backslash';
+    src: url('./fonts/Backslash.ttf');
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}

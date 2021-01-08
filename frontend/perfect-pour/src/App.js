@@ -3,7 +3,6 @@
  * React component for main application entrypoint
  */
 
-import './styles/main.scss';
 import React, { useState } from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Redirect,
