@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const PopUp = ({ message }) => {
+const PopUp = ({ message, setMessage }) => {
   const [visible, setVisible] = useState(false);
+
   useEffect(() => {
     if (!message || message.length === 0) {
       setVisible(false);
@@ -11,6 +12,7 @@ const PopUp = ({ message }) => {
     setVisible(true);
     setTimeout(() => {
       setVisible(false);
+      setMessage('');
     }, 4000);
   }, [message]);
 

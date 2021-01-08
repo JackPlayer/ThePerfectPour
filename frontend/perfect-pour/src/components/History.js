@@ -6,7 +6,9 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import Page from './reusable/Page';
 
-const History = ({ navList, active, recipes }) => {
+const History = ({
+  navList, active, recipes, setUser,
+}) => {
   const renderRecipes = () => recipes.map((recipe) => (
         <tr key={recipe.id}>
           <td>{recipe.name}</td>
@@ -15,7 +17,7 @@ const History = ({ navList, active, recipes }) => {
         </tr>
   ));
   return (
-    <Page active={active} pageTitle="History" navList={navList}>
+    <Page active={active} pageTitle="History" navList={navList} setUser={setUser}>
       <div id="history-page">
         <div id="brewing">
           <h2 className="sub-title">
@@ -69,4 +71,5 @@ History.propTypes = {
   navList: PropTypes.arrayOf(PropTypes.string),
   active: PropTypes.string,
   recipes: PropTypes.arrayOf(PropTypes.object),
+  setUser: PropTypes.func,
 };

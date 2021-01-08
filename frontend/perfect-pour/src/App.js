@@ -25,13 +25,13 @@ const App = () => {
         <div className="app">
           <Switch>
             <Route path="/home">
-              <Home active="home" setRecipes={setRecipes} recipes={recipes} navList={navList} />
+              <Home active="home" setUser={setUser} setRecipes={setRecipes} recipes={recipes} navList={navList} />
             </Route>
             <Route path="/history">
-              <History recipes={recipes} active="history" navList={navList} />
+              <History recipes={recipes} setUser={setUser} active="history" navList={navList} />
             </Route>
             <Route path="/calculations">
-              <Calculations active="calculations" navList={navList} />
+              <Calculations active="calculations" setUser={setUser} navList={navList} />
             </Route>
             <Route render={() => <Redirect to="/home" />} />
           </Switch>

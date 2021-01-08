@@ -15,11 +15,11 @@ import carbonation from '../assets/reaction.svg';
 import beers from '../assets/beers.svg';
 
 const Home = ({
-  navList, active, recipes, setRecipes,
+  navList, active, recipes, setRecipes, setUser,
 }) => {
   const username = 'Jack';
   return (
-    <Page active={active} pageTitle={`Welcome back ${username}...`} navList={navList}>
+    <Page active={active} pageTitle={`Welcome back ${username}...`} setUser={setUser} navList={navList}>
       <div id="home-page">
         <div id="progress-section">
           <h2 className="sub-title">In progress</h2>
@@ -57,4 +57,5 @@ Home.propTypes = {
   active: PropTypes.string,
   recipes: PropTypes.arrayOf(PropTypes.object),
   setRecipes: PropTypes.func,
+  setUser: PropTypes.func,
 };

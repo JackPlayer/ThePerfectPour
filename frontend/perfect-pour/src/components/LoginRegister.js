@@ -23,13 +23,11 @@ const LoginRegister = ({ setUser, setMessage }) => {
   });
 
   const [create] = useMutation(CREATE_USER, {
-    onError: (e) => {
-      console.log(e.message);
+    onError: () => {
       setMessage('Failed to create account. Username or email may already exist.');
     },
 
-    onCompleted: (data) => {
-      console.log(data);
+    onCompleted: () => {
       setMessage('Created new account');
     },
   });
@@ -102,13 +100,15 @@ const LoginRegister = ({ setUser, setMessage }) => {
       <div id="register">
         <h2>Create Account</h2>
         <form data-testid="register-form" id="register-form" onSubmit={(e) => handleSignup(e)}>
-          <div className="form-field">
-            <label>Email</label>
-            <input value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} type="email"></input>
-          </div>
+
           <div className="form-field">
             <label>Username</label>
             <input value={registerUsername} onChange={(e) => setRegisterUsername(e.target.value)} type="text"></input>
+          </div>
+
+          <div className="form-field">
+            <label>Email</label>
+            <input value={registerEmail} onChange={(e) => setRegisterEmail(e.target.value)} type="email"></input>
           </div>
 
           <div className="form-field">

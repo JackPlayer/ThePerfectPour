@@ -8,8 +8,8 @@ import PropTypes from 'prop-types';
 import Page from './reusable/Page';
 import CalculatorABV from './CalculatorABV';
 
-const Calculations = ({ navList, active }) => (
-    <Page active={active} pageTitle="Calculations" navList={navList}>
+const Calculations = ({ navList, active, setUser }) => (
+    <Page active={active} pageTitle="Calculations" navList={navList} setUser={setUser}>
       <h2 className="sub-title">
         Alcohol By Volume
       </h2>
@@ -33,4 +33,5 @@ export default Calculations;
 Calculations.propTypes = {
   navList: PropTypes.arrayOf(PropTypes.string),
   active: PropTypes.string,
+  setUser: PropTypes.func,
 };

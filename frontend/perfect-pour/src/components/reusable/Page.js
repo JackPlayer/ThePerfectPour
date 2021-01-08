@@ -10,7 +10,7 @@ import Header from './Header';
 import Footer from './Footer';
 
 const Page = ({
-  navList, pageTitle, children, active, login,
+  navList, pageTitle, children, active, login, setUser,
 }) => {
   const history = useHistory();
 
@@ -20,6 +20,7 @@ const Page = ({
   const handleLogout = () => {
     // eslint-disable-next-line no-undef
     localStorage.removeItem('perfectpour-token');
+    setUser(null);
     history.push('/login');
   };
   return (
@@ -48,4 +49,5 @@ Page.propTypes = {
   pageTitle: PropTypes.string,
   active: PropTypes.string,
   login: PropTypes.bool,
+  setUser: PropTypes.func,
 };
