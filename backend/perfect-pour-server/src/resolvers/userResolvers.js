@@ -76,7 +76,7 @@ const userResolvers = {
       return {
         username,
         email,
-        passHash:compPass,
+        passHash: compPass,
         token,
         id,
       };
