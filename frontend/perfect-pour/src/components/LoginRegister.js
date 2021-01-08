@@ -23,7 +23,8 @@ const LoginRegister = ({ setUser, setToken, setMessage }) => {
   });
 
   const [create] = useMutation(CREATE_USER, {
-    onError: () => {
+    onError: (e) => {
+      console.log(e.message);
       setMessage('Failed to create account.');
     },
   });
@@ -61,7 +62,7 @@ const LoginRegister = ({ setUser, setToken, setMessage }) => {
     });
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     if (registerUsername.length === 0
       || registerPassword.length === 0
@@ -69,7 +70,7 @@ const LoginRegister = ({ setUser, setToken, setMessage }) => {
       setMessage('Register fields must be filled.');
       return;
     }
-    create({
+    await create({
       variables:
       { username: registerUsername, password: registerPassword, email: registerEmail },
     });

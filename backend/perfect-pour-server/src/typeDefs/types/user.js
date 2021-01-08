@@ -5,7 +5,8 @@ const userType = gql`
     id: ID!,
     username: String!,
     passHash: String!,
-    email: String!
+    email: String!,
+    token: Token
   }
 `;
 module.exports = {

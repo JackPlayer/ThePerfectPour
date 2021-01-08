@@ -62,14 +62,23 @@ const userResolvers = {
       if (userResults.rowCount !== 1) throw new UserInputError('Invalid user');
 
       const compPass = userResults.rows[0].pass_hash;
-
+      const email = userResults.rows[0].email;
+      const id = userResults.rows[0].id;
       const isMatch = await bcrypt.compare(password, compPass);
       if (!isMatch) {
         throw new AuthenticationError('Invalid username or password');
       }
 
-      return {
+      const token = {
         value: jwt.sign(username, process.env.SECRET),
+      };
+
+      return {
+        username,
+        email,
+        passHash:compPass,
+        token,
+        id,
       };
     },
   },

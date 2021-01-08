@@ -10,7 +10,7 @@ const mutation = gql`
     login (
       username: String!,
       password: String!,
-    ): Token
+    ): User
   }
 `;
 
