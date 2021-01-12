@@ -9,6 +9,7 @@ const {userType,
 } = require('./types');
 
 const typeDefs = [
+  'scalar JSON',
   query,
   mutation,
   userType,

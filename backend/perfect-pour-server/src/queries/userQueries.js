@@ -25,6 +25,16 @@ const getUserByEmailOrUsername = (username, email) => {
   };
 };
 
+const getUserByUserID = (userID) => {
+  const text = 'SELECT * FROM accounts WHERE id=$1;';
+  const values = [userID];
+  return {
+    text,
+    values,
+  };
+};
+
+
 const newUser = (hashedPassword, userid, username, email, createdOn) => {
   const text = `INSERT INTO 
                   accounts(id, username, pass_hash, email, created_on)
@@ -44,6 +54,7 @@ module.exports = {
     getUserByUsername,
     getUserByEmail,
     getUserByEmailOrUsername,
+    getUserByUserID,
     newUser,
   },
 };

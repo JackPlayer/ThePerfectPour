@@ -1,13 +1,5 @@
 const getRecipesFromUserID = (userID) => {
-  const text = `SELECT recipes.name, 
-                        recipes.style, 
-                        recipes.type, 
-                        recipes.size_gal, 
-                        recipes.yeast,
-                        recipes.description,
-                        recipes.hops, 
-                        recipes.additions,
-                        recipes.created_on FROM recipes WHERE user_id=$1;`;
+  const text = `SELECT * FROM recipes WHERE user_id=$1;`;
   const values = [userID];
 
   return {
@@ -16,8 +8,8 @@ const getRecipesFromUserID = (userID) => {
   };
 };
 
-const createRecipesFromUserID = (
-    userID, recipeID, recipeName, style,
+const createRecipeFromUserID = (
+    recipeID, userID, recipeName, style,
     type, sizeGal, yeast, description, hops,
     additions, createdDate,
 ) => {
@@ -59,6 +51,6 @@ const createRecipesFromUserID = (
 module.exports = {
   recipeQueries: {
     getRecipesFromUserID,
-    createRecipesFromUserID,
+    createRecipeFromUserID,
   },
 };

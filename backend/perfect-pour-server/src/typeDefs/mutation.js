@@ -1,4 +1,5 @@
 const {gql} = require('apollo-server');
+
 const mutation = gql`
   type Mutation {
     createUser (
@@ -11,6 +12,18 @@ const mutation = gql`
       username: String!,
       password: String!,
     ): User
+
+    createRecipe (
+      userID: ID!,
+      recipeName: String!,
+      style: String!,
+      type: String!,
+      sizeGal: Float!,
+      yeast: String,
+      description: String,
+      hops: [JSON],
+      addition: [JSON],
+    ): ID
   }
 `;
 
