@@ -16,7 +16,7 @@ const recipeResolvers = {
     createRecipe: async (root, args) => {
       const {
         userID, recipeName, style, type, sizeGal,
-        yeast, description, hops, addition,
+        yeast, description, hops, additions,
       } = args;
 
       const userResult = await db.query(userQueries.getUserByUserID(userID));
@@ -24,25 +24,31 @@ const recipeResolvers = {
       if (userResult.rowCount != 1) {
         throw new UserInputError('UserID does not exist!');
       }
-
+      const hopsStr = JSON.stringify(hops);
+      const additionsStr = JSON.stringify(additions);
       const recipeID = uuidv4();
       const timeStamp = new Date(Date.now()).toISOString();
-
-      await db.query(
-          recipeQueries.createRecipeFromUserID(
-              recipeID,
-              userID,
-              recipeName,
-              style,
-              type,
-              sizeGal,
-              yeast,
-              description,
-              hops,
-              addition,
-              timeStamp,
-          ),
-      );
+      try {
+        await db.query(
+            recipeQueries.createRecipeFromUserID(
+                recipeID,
+                userID,
+                recipeName,
+                style,
+                type,
+                sizeGal,
+                yeast,
+                description,
+                hopsStr,
+                additionsStr,
+                timeStamp,
+            ),
+        );
+      } catch (err) {
+        console.log('Error adding to database: ');
+        console.log(err.message);
+        return null;
+      }
 
       return recipeID;
     },

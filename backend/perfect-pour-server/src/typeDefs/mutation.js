@@ -21,8 +21,8 @@ const mutation = gql`
       sizeGal: Float!,
       yeast: String,
       description: String,
-      hops: [JSON],
-      addition: [JSON],
+      hops: JSON,
+      additions: JSON,
     ): ID
   }
 `;

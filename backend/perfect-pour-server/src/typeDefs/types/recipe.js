@@ -10,8 +10,8 @@ const recipeType = gql`
     size: Float!,
     yeast: String,
     description: String,
-    hops: [Hop],
-    addition: [Addition],
+    hops: JSON,
+    additions: JSON,
     created: String!
   }
 `;
