@@ -4,7 +4,7 @@ const query = gql`
     getUserFromUsername(username: String!): User,
     getUserFromEmail(email: String!): User,
     getUserFromUsernameOrEmail(username: String!, email: String!): User,
-    getRecipes: [Recipe],
+    getRecipes(userID: ID!): [Recipe],
     getBrews: [Brew],
   }
 `;
