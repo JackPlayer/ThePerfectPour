@@ -1,3 +1,6 @@
+/**
+ * Queries module
+ */
 const {userQueries} = require('./userQueries');
 const {recipeQueries} = require('./recipeQueries');
 
