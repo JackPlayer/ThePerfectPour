@@ -1,5 +1,5 @@
 /**
- * Server for perfect pour application
+ * Perfect pour server
  */
 const {ApolloServer} = require('apollo-server');
 const {typeDefs} = require('./typeDefs');

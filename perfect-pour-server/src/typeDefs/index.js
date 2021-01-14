@@ -1,3 +1,6 @@
+/**
+ * Module for typeDefs
+ */
 const {query} = require('./query');
 const {mutation} = require('./mutation');
 const {userType,
