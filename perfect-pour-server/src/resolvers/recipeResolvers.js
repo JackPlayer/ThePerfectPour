@@ -48,7 +48,7 @@ const createRecipe = async (root, args) => {
     description,
     hopsStr: JSON.stringify(hops),
     additionsStr: JSON.stringify(additions),
-    timestamp: new Date(Date.now()).toISOString(),
+    createdDate: new Date(Date.now()).toISOString(),
   }
 
   // Will either be null if unsuccessful or the newly inserted recipe id
@@ -64,21 +64,7 @@ const createRecipe = async (root, args) => {
  */
 const insertRecipe = async (newRecipe) => {
   try {
-    await db.query(
-        recipeQueries.createRecipeFromUserID(
-            newRecipe.recipeID,
-            newRecipe.userID,
-            newRecipe.recipeName,
-            newRecipe.style,
-            newRecipe.type,
-            newRecipe.sizeGal,
-            newRecipe.yeast,
-            newRecipe.description,
-            newRecipe.hopsStr,
-            newRecipe.additionsStr,
-            newRecipe.timestamp,
-        ),
-    );
+    await db.query(recipeQueries.createRecipe(newRecipe));
   } catch (err) {
     console.log('Error adding to database: ');
     console.log(err.message);

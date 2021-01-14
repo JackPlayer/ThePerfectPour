@@ -1,3 +1,13 @@
+/**
+ * DB Queries relating to recipes
+ */
+
+
+/**
+  * Gets an object properly formatted for querying recipes.
+  * @param {string} userID The uuid userID to fetch
+  * @return {object} node-pg object for querying DB.
+  */
 const getRecipesFromUserID = (userID) => {
   const text = `SELECT * FROM recipes WHERE user_id=$1;`;
   const values = [userID];
@@ -8,11 +18,18 @@ const getRecipesFromUserID = (userID) => {
   };
 };
 
-const createRecipeFromUserID = (
+
+/**
+  * Gets an object properly formatted for inserting into the DB
+  * @param {object} newRecipe Object containing the new recipe information
+  * @return {object} node-pg object for inserting recipe into DB.
+  */
+const createRecipe = (newRecipe) => {
+  const {
     recipeID, userID, recipeName, style,
     type, sizeGal, yeast, description, hops,
     additions, createdDate,
-) => {
+  } = newRecipe;
   const text = `INSERT INTO recipes (
                         id, 
                         user_id, 
@@ -51,6 +68,6 @@ const createRecipeFromUserID = (
 module.exports = {
   recipeQueries: {
     getRecipesFromUserID,
-    createRecipeFromUserID,
+    createRecipe,
   },
 };
