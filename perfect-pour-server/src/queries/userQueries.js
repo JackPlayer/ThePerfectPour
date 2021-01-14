@@ -67,12 +67,12 @@ const getUserByUserID = (userID) => {
   * @return {object} node-pg formatted query object
   */
 const newUser = (newUser) => {
-  const {hashedPassword, userid, username, email, createdOn} = newUser;
+  const {passHash, id, username, email, createdOn} = newUser;
   const text = `INSERT INTO 
                   accounts(id, username, pass_hash, email, created_on)
                 VALUES ($1, $2, $3, $4, $5)`;
 
-  const values = [userid, username, hashedPassword, email, createdOn];
+  const values = [id, username, passHash, email, createdOn];
 
   return {
     text,
