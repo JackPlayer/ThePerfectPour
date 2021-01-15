@@ -55,7 +55,7 @@ const NewRecipeForm = ({
       additions,
     };
 
-    await createRecipe({
+    const recipeIDResponse = await createRecipe({
       variables: {
         userID: user.id,
         recipeName: newRecipe.name,
@@ -68,7 +68,13 @@ const NewRecipeForm = ({
         additions: JSON.stringify({ additions }),
       },
     });
-    setRecipes(recipes.concat(newRecipe));
+
+    setRecipes(recipes.concat(
+      {
+        ...newRecipe,
+        id: recipeIDResponse.data.createRecipe,
+      },
+    ));
   };
   return (
     <form id="recipe-form" onSubmit={(e) => handleRecipeSubmit(e)}>
