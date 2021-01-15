@@ -21,8 +21,6 @@ const AdditionsForm = ({ additions, setAdditions }) => {
   };
 
   const handleDeleteAdditions = (id) => {
-    console.log('Deleting');
-    console.log(additions);
     const filteredAdditions = additions.filter((addition) => addition.id !== id);
     setAdditions(filteredAdditions);
   };
