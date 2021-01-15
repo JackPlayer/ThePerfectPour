@@ -54,8 +54,7 @@ const NewRecipeForm = ({
       size,
       additions,
     };
-    console.log(additions);
-    console.log(hops);
+
     await createRecipe({
       variables: {
         userID: user.id,
