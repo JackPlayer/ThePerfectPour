@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+
 const PopUp = ({ message, setMessage }) => {
   const [visible, setVisible] = useState(false);
 
@@ -19,6 +22,7 @@ const PopUp = ({ message, setMessage }) => {
   if (!visible) return null;
   return (
         <div id="pop-up">
+            <FontAwesomeIcon icon={faInfoCircle} />
             <p>{message}</p>
         </div>
   );
