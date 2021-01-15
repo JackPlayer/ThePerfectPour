@@ -294,6 +294,10 @@ footer#footer {
   > div {
     width: 45%;
   }
+
+  #brewing, #recipes {
+    margin-bottom: 20px;
+  }
 }
 
 // Calculator Page
@@ -309,6 +313,7 @@ footer#footer {
     margin-left: 15px;
   select {
     width: 100%;
+    padding: 0.5rem 1rem;
     border-radius: 5px;
   }
    option {
@@ -334,7 +339,7 @@ footer#footer {
     }
   }
 
-  #progress-section {
+  #progress-section, #create-recipe, #create-brew {
     margin-bottom: 20px;
   }
 
@@ -422,7 +427,7 @@ footer#footer {
       margin-bottom: 20px;
   
       > div {
-        width: 100%;
+        width: 100% !important;
       }
     }
 

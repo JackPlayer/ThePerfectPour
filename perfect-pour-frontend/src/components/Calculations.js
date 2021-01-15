@@ -20,7 +20,7 @@ const Calculations = ({ navList, active, setUser }) => (
           </div>
         </div>
         <div id="calculator-selector">
-          <select name="calculators" size="2">
+          <select name="calculators" size="1">
             <option value="gravity" className="selected">ABV</option>
           </select>
         </div>
