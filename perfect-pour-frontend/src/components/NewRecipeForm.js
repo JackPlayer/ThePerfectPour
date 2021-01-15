@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 import HopForm from './HopForm';
-import GrainForm from './GrainForm';
+import AdditionsForm from './AdditionsForm';
 
 const NewRecipeForm = ({ recipes, setRecipes }) => {
   const [name, setName] = useState('');
@@ -15,7 +15,7 @@ const NewRecipeForm = ({ recipes, setRecipes }) => {
   const [type, setType] = useState('all-grain');
   const [description, setDescription] = useState('');
   const [hops, setHops] = useState([]);
-  const [grains, setGrains] = useState([]);
+  const [additions, setAdditions] = useState([]);
 
   const handleRecipeSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +31,7 @@ const NewRecipeForm = ({ recipes, setRecipes }) => {
       type,
       description,
       hops,
-      grains,
+      additions,
     };
     setRecipes(recipes.concat(newRecipe));
   };
@@ -63,7 +63,7 @@ const NewRecipeForm = ({ recipes, setRecipes }) => {
         </textarea>
       </div>
       <HopForm hops={hops} setHops={setHops} />
-      <GrainForm grains={grains} setGrains={setGrains} />
+      <AdditionsForm additions={additions} setAdditions={setAdditions} />
       <button type="submit" className="btn-form">Create</button>
     </form>
   );
