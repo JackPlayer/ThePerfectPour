@@ -7,6 +7,7 @@ import React, { useState } from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Redirect,
 } from 'react-router-dom';
+
 import LoginRegister from './components/LoginRegister';
 import History from './components/History';
 import Home from './components/Home';
@@ -19,13 +20,12 @@ const App = () => {
   const [message, setMessage] = useState('');
   const [user, setUser] = useState(null);
 
-  console.log('User: ', user);
   const renderMainApp = () => (
       <Router >
         <div className="app">
           <Switch>
             <Route path="/home">
-              <Home active="home" setUser={setUser} setRecipes={setRecipes} recipes={recipes} navList={navList} />
+              <Home active="home" setUser={setUser} user ={user} setRecipes={setRecipes} recipes={recipes} navList={navList} />
             </Route>
             <Route path="/history">
               <History recipes={recipes} setUser={setUser} active="history" navList={navList} />

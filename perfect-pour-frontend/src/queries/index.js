@@ -37,4 +37,29 @@ query getUser($username: String!) {
 }
 `;
 
-export { LOGIN, CREATE_USER, GET_USER };
+const GET_RECIPES = gql`
+query getRecipes($userID: ID!) {
+  getRecipes(userID: $userID) {
+    id,
+    name,
+    style,
+    type,
+    size,
+    yeast,
+    description,
+    hops,
+    additions,
+    created
+  }
+}
+`;
+
+const CREATE_RECIPE = gql`
+mutation createRecipe($userID: String!, $recipeName: String!, $style: String!, $type: String!, $sizeGal: Float!, $yeast: String, $description: String, $hops: JSON, $additions: JSON) {
+  createRecipe(userID: $userID, recipeName: $recipeName, style: $style, type: $type, sizeGal: $sizeGal, yeast: $yeast, description: $description, hops: $hops, additions: $additions)
+}
+`;
+
+export {
+  LOGIN, CREATE_USER, GET_USER, GET_RECIPES, CREATE_RECIPE,
+};

@@ -29,6 +29,9 @@ const LoginRegister = ({ setUser, setMessage }) => {
 
     onCompleted: () => {
       setMessage('Created new account');
+      setRegisterPassword('');
+      setRegisterEmail('');
+      setRegisterUsername('');
     },
   });
 
