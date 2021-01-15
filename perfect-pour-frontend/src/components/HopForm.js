@@ -76,7 +76,7 @@ const HopForm = ({ hops, setHops }) => {
           <div className="form-field">
             <label>Amount</label>
             <div>
-              <input onChange={(e) => setHopAmount(e.target.value)} type="number" min="0" />
+              <input onChange={(e) => setHopAmount(e.target.value)} type="number" step="0.5" min="0" />
               <span> oz</span>
             </div>
           </div>

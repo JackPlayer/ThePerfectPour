@@ -25,7 +25,7 @@ const App = () => {
         <div className="app">
           <Switch>
             <Route path="/home">
-              <Home active="home" setUser={setUser} user ={user} setRecipes={setRecipes} recipes={recipes} navList={navList} />
+              <Home active="home" setMessage={setMessage} setUser={setUser} user ={user} setRecipes={setRecipes} recipes={recipes} navList={navList} />
             </Route>
             <Route path="/history">
               <History recipes={recipes} setUser={setUser} active="history" navList={navList} />

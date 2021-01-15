@@ -55,7 +55,7 @@ query getRecipes($userID: ID!) {
 `;
 
 const CREATE_RECIPE = gql`
-mutation createRecipe($userID: String!, $recipeName: String!, $style: String!, $type: String!, $sizeGal: Float!, $yeast: String, $description: String, $hops: JSON, $additions: JSON) {
+mutation createRecipe($userID: ID!, $recipeName: String!, $style: String!, $type: String!, $sizeGal: Float!, $yeast: String, $description: String, $hops: JSON, $additions: JSON) {
   createRecipe(userID: $userID, recipeName: $recipeName, style: $style, type: $type, sizeGal: $sizeGal, yeast: $yeast, description: $description, hops: $hops, additions: $additions)
 }
 `;

@@ -19,7 +19,7 @@ import beers from '../assets/beers.svg';
 import { GET_RECIPES } from '../queries';
 
 const Home = ({
-  navList, active, recipes, setRecipes, setUser, user,
+  navList, active, recipes, setRecipes, setUser, user, setMessage,
 }) => {
   const recipeQuery = useQuery(GET_RECIPES, {
     variables: { userID: user.id },
@@ -48,7 +48,12 @@ const Home = ({
           <div id="create-recipe">
             <h2 className="sub-title">New Recipe</h2>
             <div className="content-box">
-              <NewRecipeForm recipes={recipes} setRecipes={setRecipes}/>
+              <NewRecipeForm
+                user={user}
+                setMessage={setMessage}
+                recipes={recipes}
+                setRecipes={setRecipes}
+                />
             </div>
           </div>
           <div id="create-brew">
@@ -69,7 +74,8 @@ Home.propTypes = {
   navList: PropTypes.arrayOf(PropTypes.string),
   active: PropTypes.string,
   recipes: PropTypes.arrayOf(PropTypes.object),
+  user: PropTypes.object,
   setRecipes: PropTypes.func,
   setUser: PropTypes.func,
-  user: PropTypes.object,
+  setMessage: PropTypes.func,
 };
