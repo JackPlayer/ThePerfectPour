@@ -27,8 +27,8 @@ const getRecipesFromUserID = (userID) => {
 const createRecipe = (newRecipe) => {
   const {
     recipeID, userID, recipeName, style,
-    type, sizeGal, yeast, description, hops,
-    additions, createdDate,
+    type, sizeGal, yeast, description, hopsStr,
+    additionsStr, createdDate,
   } = newRecipe;
   const text = `INSERT INTO recipes (
                         id, 
@@ -57,7 +57,7 @@ const createRecipe = (newRecipe) => {
                         );`;
   const values = [
     recipeID, userID, recipeName, style, type,
-    sizeGal, yeast, description, hops, additions, createdDate,
+    sizeGal, yeast, description, hopsStr, additionsStr, createdDate,
   ];
   return {
     text,

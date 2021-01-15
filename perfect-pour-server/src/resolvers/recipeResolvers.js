@@ -35,6 +35,7 @@ const createRecipe = async (root, args) => {
     yeast, description, hops, additions,
   } = args;
 
+  console.log("Hops are: ", hops);
   checkUserIDValid(userID)
   await checkUserExists(userID)
   const newRecipe = {
@@ -63,6 +64,7 @@ const createRecipe = async (root, args) => {
  * @returns the newly entered recipeID if operation was successful, null otherwise.
  */
 const insertRecipe = async (newRecipe) => {
+  console.log("The new recipe is: ", newRecipe)
   try {
     await db.query(recipeQueries.createRecipe(newRecipe));
   } catch (err) {
