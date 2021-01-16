@@ -3,10 +3,11 @@
  * React component for main application entrypoint
  */
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router, Switch, Route, Redirect,
 } from 'react-router-dom';
+import { useLazyQuery } from '@apollo/client';
 
 import LoginRegister from './components/LoginRegister';
 import History from './components/History';
@@ -14,11 +15,25 @@ import Home from './components/Home';
 import Calculations from './components/Calculations';
 import PopUp from './components/PopUp';
 
+import { GET_RECIPES } from './queries';
+
 const App = () => {
   const navList = ['home', 'history', 'calculations'];
   const [recipes, setRecipes] = useState([]);
   const [message, setMessage] = useState('');
   const [user, setUser] = useState(null);
+  const [getRecipes, recipeQuery] = useLazyQuery(GET_RECIPES);
+  useEffect(() => {
+    if (user != null) {
+      getRecipes({ variables: { userID: user.id } });
+    }
+  }, [user]);
+
+  useEffect(() => {
+    if (recipeQuery.data !== undefined) {
+      setRecipes(recipeQuery.data.getRecipes);
+    }
+  }, [recipeQuery.loading]);
 
   const renderMainApp = () => (
       <Router >

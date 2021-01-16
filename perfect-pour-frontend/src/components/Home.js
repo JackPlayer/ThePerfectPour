@@ -3,9 +3,8 @@
  * React component for the home page.
  */
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useQuery } from '@apollo/client';
 
 import Page from './reusable/Page';
 import NewBrewForm from './NewBrewForm';
@@ -16,22 +15,9 @@ import hops from '../assets/hops.svg';
 import carbonation from '../assets/reaction.svg';
 import beers from '../assets/beers.svg';
 
-import { GET_RECIPES } from '../queries';
-
 const Home = ({
   navList, active, recipes, setRecipes, setUser, user, setMessage,
-}) => {
-  const recipeQuery = useQuery(GET_RECIPES, {
-    variables: { userID: user.id },
-  });
-
-  useEffect(() => {
-    if (recipeQuery.data) {
-      setRecipes(recipeQuery.data.getRecipes);
-    }
-  }, [recipeQuery.loading]);
-
-  return (
+}) => (
     <Page active={active} pageTitle={`Welcome back ${user.username}...`} setUser={setUser} navList={navList}>
       <div id="home-page">
         <div id="progress-section">
@@ -65,8 +51,7 @@ const Home = ({
         </div>
       </div>
     </Page>
-  );
-};
+);
 
 export default Home;
 
